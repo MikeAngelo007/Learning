@@ -1,0 +1,220 @@
+/*Con etiqueta*/
+h2{
+    color:blue;
+}
+
+h1{
+    color: blueviolet;
+    text-transform: uppercase;
+}
+
+p{
+    color:yellow;
+    font-size: 25px;
+}
+
+header, .nosotros{
+    background-color: orangered;
+    color: white;
+    padding: 20px;
+}
+
+/*Con id*/
+#news, #ulist, .logo {
+    background-color: blue;
+}
+
+/*Con clase*/
+.contenedor-principal, .navegation{
+    background-color: beige;
+}
+
+.contenedor-principal{
+    background-color: brown;
+}
+
+#contein.contenedor{
+    background-color: black;
+    color: white;
+}
+
+.curso{
+    text-transform: uppercase;
+}
+
+.curso.curso-online{
+    color: purple;
+}
+
+.curso.curso-presencial{
+    color: lightgreen;
+}
+
+aside.especial{
+    background-color: darkred;
+}
+aside{
+    background-color: lightblue;
+    text-transform: uppercase;
+}
+img{
+    width: 300px;
+}
+
+img#logo{
+    height: 400px;
+
+}
+
+ol#or{
+    color: slategrey;
+}
+h2.tema{
+    color: greenyellow;
+}
+
+/*Selector universal (Selecciona todos los elementos posibles de la pagina)*/
+
+
+*{
+    /*background: rebeccapurple;*/
+    /* !important se usa para que se aplique a todo, es decir que tenga una prioridad sobre los demas estilos*/
+    color: white;
+}
+
+#news *{
+    color:red;
+}
+
+aside *{
+    color: black;
+}
+
+.menu *{
+    color: brown;
+    font-size: 40px;
+}
+
+/*para aplicar el mismo estilo a varios elementos, se separan por medio de una coma los selectores y entre corchetes el estilo que se quiere aplicar*/
+/*
+h2, div <------ Selectores
+{
+    color:blue; <-------- Estilo que se desea aplicar
+
+}*/
+
+
+/*Selector de descendientes*/
+
+nav.navegation{
+    background: blue;
+}
+nav.navegation ul{
+    list-style: none;
+}
+
+nav.navegation ul li{
+    display: inline;
+}
+nav.navegation ul li a{
+    color: red;
+}
+
+div#cursos > ul{
+    border: 1px solid yellow;
+}
+
+/*Selector de primer hijo*/
+ul#ulist > h2{
+    color: pink;
+} 
+
+ol#or > ol{
+    background: red!important;
+} 
+
+
+/*Selector abyacente: lo que hace es aplicar el estilo al siguiente es decir:
+etiqueta + etiqueta que le sigue{
+    estilo a aplicar a la etiqueta que le sigue
+}
+
+usado para poder evitar colocar clases o identificadores a la etiqueta que se aplica el estilo*/
+
+div.menu + p{
+    text-transform: uppercase;
+}
+
+/*Enlaces*/
+/*Aplica el estilo a los enlaces que tengan el href indicado (por expresiones regulares, * representa todo antes de )*/
+a[href*="google.com"]{
+    color:purple!important;
+}
+
+a[href*=".html"]{
+    color:yellowgreen!important;
+}
+
+a[href*=".pdf"]{
+    color:blueviolet!important;
+}
+
+/*por atributos*/
+[width="200"]{
+    background: white!important;
+}
+[align="center"]{
+    background: lightgreen!important;
+    color: white!important;
+}
+
+/*con Pseudo-Clases*/
+/*Cuando estan seleccionados o visitados los links*/
+div.menu nav ul li a:focus{
+    background: yellow;
+}
+
+div.menu nav ul li a:visited{
+    background: red;
+}
+
+div.menu nav ul li a:active{
+    background: blue;
+}
+div.menu nav ul li:first-child a{
+    /*Se aplica sobre el primer hijo 'a' de 'li'*/
+    text-decoration: none;
+}
+
+div.menu nav ul li a:hover{
+    background: orange;
+}
+
+h2:hover{
+    text-transform: uppercase;
+}
+
+/*con Pseudo-Clases y NTH-Child*/
+div.menu nav ul li:nth-child(1){
+    /*Se aplica sobre el n-hijo de 'li'*/
+    background: darkolivegreen;
+}
+div.menu nav ul li:nth-child(2){
+    /*Se aplica sobre el n-hijo de 'li'*/
+    background: rgb(255, 0, 255);
+}
+
+div.menu nav ul li:nth-child(3){
+    /*Se aplica sobre el n-hijo de 'li'*/
+    background: rgb(255, 0, 0);
+}
+
+
+
+/*El selector universal tiene mucho peso y prioridad sobre la mayoria de cosas*/
+table tbody tr:nth-child(odd){
+    background: orangered!important;
+}
+table tbody tr:nth-child(even){
+    background: yellowgreen!important;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Multimedia y Audio HTML5</title>
+</head>
+<body>
+    <a href="../index2.html">Volver a inicio</a>
+    <h2>Videos en HTML5</h2>
+
+    <!--<video src="video/codigo.ogv" controls preload="auto" autoplay>
+        <!--Video: Para colocar video en el HTML-->
+        <!--Controls: Permite reproducir, adelantar y pantalla completa en el video-->
+        <!--Preload: Precarga el video: none=El video no aparece (carga) hasta que se da play. auto: Empieza a descargar datos (Informacion) del video apenas se carga la pagina. metadata: Empieza a descargar informacion del video apenas se da play.  ->
+        <p>Tu navegador no soporta video</p>
+    </video> -->
+
+    <video width="600" controls preload="auto" autoplay loop muted>
+        <!--Video: Para colocar video en el HTML-->
+        <!--Controls: Permite reproducir, adelantar y pantalla completa en el video-->
+        <!--Preload: Precarga el video: none=El video no aparece (carga) hasta que se da play. auto: Empieza a descargar datos (Informacion) del video apenas se carga la pagina. metadata: Empieza a descargar informacion del video apenas se da play.  -->
+        <!-- Autoplay: Reproduce el video automaticamente se ingresa al sitio web -->
+        <!-- Loop: Permite que el video se autoreproduzca infinitas veces consecutivamente-->
+        <!-- Muted: Silencia el video (Necesario en chrome para la autoreproduccion del video)-->
+        <!-- width: Ajusta el tamaño del video.-->
+        <source src="video/codigo.mp4" type="video/mp4">
+        <source src="video/codigo.webm" type="video/webm">
+        <source src="video/codigo.ogv" type="video/ogg">
+        <!-- source: Permitira que la version se compatible con diferentes navegadores -->
+        <p>Tu navegador no soporta video</p>
+    </video>
+
+    <video controls preload="auto" poster="img/logo.png" loop>
+            <!--Video: Para colocar video en el HTML-->
+            <!--Controls: Permite reproducir, adelantar y pantalla completa en el video-->
+            <!--Preload: Precarga el video: none=El video no aparece (carga) hasta que se da play. auto: Empieza a descargar datos (Informacion) del video apenas se carga la pagina. metadata: Empieza a descargar informacion del video apenas se da play.  -->
+            <!-- Autoplay: Reproduce el video automaticamente se ingresa al sitio web -->
+            <!-- Poster: Imagen usada pa indicar la existencia de un campo de video o el inicio de un video-->
+            <source src="video/codigo.mp4" type="video/mp4">
+            <source src="video/codigo.webm" type="video/webm">
+            <source src="video/codigo.ogv" type="video/ogg">
+            <!-- source: Permitira que la version se compatible con diferentes navegadores -->
+            <p>Tu navegador no soporta video</p>
+        </video>
+
+    <h2>Audio en HTML5</h2>
+
+    <!--<audio src="audio/audio.oga" controls preload="none"></audio> -->
+    <audio controls preload="none" autoplay>
+        <source src="audio/audio.m4a" type="audio/mp4">
+        <source src="audio/audio.oga" type="audio/ogg">
+    </audio>
+</body>
+</html>

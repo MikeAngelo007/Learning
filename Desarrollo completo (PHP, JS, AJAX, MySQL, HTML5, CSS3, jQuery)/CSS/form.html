@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formularios</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a href="index2.html">Volver a inicio</a>
+
+    <h1>Creando formularios</h1>
+    <form action="" class="formulario">
+        <fieldset>
+            <!--fieldset se usa para agrupar secciones de la información-->
+            <legend>Datos personales</legend>
+                <label for="in1">Nombre:</label>
+                <input type="text" name="nombre" id="in1" placeholder="Your name" required>
+                <!-- autocomplete: "off"/"on" si deseo que la entrada tenga oopcion de autocompletado-->
+        
+                <br/>
+                <br/>
+        
+                <label for="in2">Apellido:</label>
+                <input type="text" name="apellido" id="in2" placeholder="Your lastname" autocomplete="off" required>
+
+                <br/>
+                <br/>
+
+                <label for="sex">Genero: </label>
+                <br/>
+                <input type="radio" id="sex" name="sexo" value="Hombre" checked > Hombre 
+                <input type="radio" id="sex" name="sexo" value="Mujer"> Mujer 
+                <input type="radio" id="sex" name="sexo" value="Otro"> Otro 
+
+                <br/><br/>
+
+                <label for="dats">Fecha de nacimiento: </label>
+                <input type="date" name="hora" id="dats" required>
+
+                <br/><br/>
+
+                <label for="correo">E-mail: </label>
+                <input type="email" name="Email" id="correo" placeholder="email@dominio.com" required>
+
+                <br/><br/>
+                <label for="http">Tu sitio web:</label>
+                <input type="url" name="sitio-web" id="http" placeholder="https://www.domain.com">
+
+                <br/><br/>
+                <label for="rang">Cuanto sabes de HTML?</label>
+                0<input type="range" name="rango" id="rang" min="0" max="10">10
+
+                <br/><br/>
+                <label for="age">Cuantos años tienes?</label>
+                <input type="number" name="años" id="age">
+                <br/><br/>
+                <label for="age">Cuantos años tienes? (Limitado)</label>
+                <input type="number" name="años" id="age" min="5" max="90">
+        
+        </fieldset>
+
+        <br/>
+        <br/>
+
+        <fieldset>
+            <legend>Información sobre el curso: </legend>
+            <label for="turn"> Cuando deseas tomar el curso? </label>
+            <select name="turno" id="turn" required>
+                <option value="matutino">Madrugador</option>
+                <option value="tarde"> Casual </option>
+                <option value="nocturno"> Noctambulo </option>
+            </select>
+            <br/><br/>
+
+            <label>Que curso deberiamos agregar?</label>
+            <input list="propuesta" name="prop" required>
+            <datalist id="propuesta">
+                <option value="JQuery">
+                <option value="Aplicaciones Web">
+                <option value="MySQL">
+
+            </datalist>
+
+            <br/><br/>
+
+            <label for="">Choose your courses: </label> <br/>
+            <!-- Checkbox es como radiobutton pero con puede escogerse varias opciones-->
+            <input type="checkbox" name="course" id="cours" value="php"> PHP <br/>
+            <input type="checkbox" name="course" id="cours" value="js"> JavaScript <br/>
+            <input type="checkbox" name="course" id="cours" value="css3"> CSS3 <br/>
+            <input type="checkbox" name="course" id="cours" value="html5"> HTML5 <br/>
+            <input type="checkbox" name="course" id="cours" value="ajax"> AJAX <br/>
+        </fieldset>
+        <br/>
+
+        <fieldset>
+            <legend>Extra</legend>
+            <label for="colores">Si eres de los primeros te daremos una camisate, escoge el color: </label>
+            <input type="color" name="col" id="colores">
+
+            <br/><br/>
+
+            <label for="dat">En que fecha puedes recibirla?</label>
+            <input type="date" name="fecha" id="dat">
+
+            <br/><br/>
+
+            <label for="datime">En que fecha puedes recibirla? (Opcion hora)</label>
+            <input type="time" name="time" id="datime">
+
+            <br/><br/>
+
+            <label for="datcomplete">En que fecha puedes recibirla? (Opcion completa)</label>
+            <input type="datetime-local" name="time-complete" id="datcomplete">
+
+            <br/><br/>
+
+            <label for="datmonth">En que fecha puedes recibirla? (Opcion mes)</label>
+            <input type="month" name="timemonth" id="datmonth">
+
+            <br/><br/>
+
+            <label for="datweek">En que fecha puedes recibirla? (Opcion semana)</label>
+            <input type="week" name="timeweek" id="datweek">
+            
+        </fieldset>
+
+        <fieldset>
+            <legend>Usuario y contraseña</legend>
+            <label for="user">Usuario: </label>
+            <input type="text" name="usuario" id="user" placeholder="Username" autocomplete="on" required>
+            <br/><br/>
+            <label for="pass">Contraseña: </label>
+            <input type="password" name="contraseña" id="pass" placeholder="Password" required>
+        </fieldset>
+        <br/>
+
+        <button type="reset">Vamo' a resetea'</button>
+        <button type="submit">Envie esa vaina ome'</button>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pagina Web 2.0</title>
+</head>
+<body>
+    <h2>Divs, Navs y otros elementos</h2>
+
+    <div class="contenedor">
+        <header role="banner">
+        <!-- Cabecera -->
+        <!-- ROLE: Establece el rol de cada etiqueta y hace que la pagina sea mas accesible para las personas. Ya que las personas pueden navega por los roles y se les leera lo que esta dentro de cada uno-->
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo test">
+
+            </div>
+            <nav class="navegation" role="navigation">
+                <!-- Nvegacion -->
+                <a href="Naipes/naipes.html">Naipes</a>
+
+                <ul>
+                    <!-- Unordered list-->
+                    <li><!-- List Item--><a href="index.html">Sobre nosotros</a></li>
+                    <li><a href="#">Cursos</a></li>
+                    <li><a href="#news">Noticias</a></li>
+                    <li><a href="http://google.com" target="_blank">Google</a></li>
+                    <li><a href="form.html">Formularios</a></li>
+                    <li><a href="Multimedia/multimedia.html">Videos y audios</a></li>
+                </ul>
+
+            </nav>
+            <main class="contenedor-principal" role="main">
+                <!-- Contenedor principal -->
+                <section>
+                    <h2>Cursos</h2>
+                    <div>
+                        <h3> HTML5</h3>
+                        <img src="img/html5.png" alt="HTML5" width="200">
+                        <a href="docs/programa-html5.pdf" download>Descargar programa</a>
+
+                        <ul>
+                            <h2>Ventajas del curso</h2>
+                            <li>Lo puedes tomar en linea</li>
+                            <li>Avanzas a ti ritmo
+                                <ul>
+                                    <li>Otros items</li>
+                                </ul>
+                            </li>
+                            <li>Es bastante completo
+                                <ul>
+                                    <li>Otros items</li>
+                                </ul>
+                            </li>
+                            
+                        </ul>
+
+                        <ol>
+                            <!-- Ordered list -->
+                            <h2>Temario</h2>
+                            <li>Basico HTML5</li>
+                            <ol>
+                                <li>Semanticos</li>
+                                <li>Header</li>
+                                <li><img src="img/css3.png" alt="CSS3" width="200"></li>
+                            </ol>
+                            <li>Etiquetas HTML</li>
+                            <ul>
+                                <li>Nav</li>
+                                <li>Div</li>
+                                <li><img src="img/css3.png" alt="CSS3" width="200"></li>
+                            </ul>
+                            <li>Crear enlaces</li>
+                            <li>Crear listas</li>
+                        </ol>
+
+                        <dl>
+                            <!--Definition list-->
+                            <dt>
+                                <!-- Definition term -->
+                                HTML5
+                            </dt>
+                            <dd>
+                                <!-- Definition description -->
+                                Lenguaje para estructuracion de paginas web
+                            </dd>
+
+                            <dt> CSS3 </dt>
+                            <dd>Lenguaje para formato HTML5</dd>
+                        </dl>
+                    </div>
+                    <div>
+                        <h3> CSS3</h3>
+                        <img src="img/css3.png" alt="CSS3" width="200">
+                    </div>
+                    <div>
+                        <h3>JavaScript</h3>
+                        <img src="img/js.jpg" alt="JavaScript" width="200">
+                    </div>
+                </section>
+
+                <section id="news">
+                    <!-- Seccion -->
+                    <h2>Ultimas noticias</h2>
+                    <article role="article">
+                        <h3>Progrmacion en el siglo XXI</h3>
+                        <p>Sed at cursus nunc. Nullam tempus dui id massa feugiat, nec feugiat ligula ultricies. Nullam pharetra purus id erat iaculis rutrum. Aliquam viverra eu lectus interdum tempus. Quisque ac orci eu metus tristique rhoncus. Pellentesque vitae pretium nisi. Pellentesque vel leo eu quam eleifend laoreet ut at diam.</p>
+                    </article>
+
+                    <article role="article">
+                        <h3>Amgular VS React</h3>
+                        <p>Sed at cursus nunc. Nullam tempus dui id massa feugiat, nec feugiat ligula ultricies. Nullam pharetra purus id erat iaculis rutrum. Aliquam viverra eu lectus interdum tempus. Quisque ac orci eu metus tristique rhoncus. Pellentesque vitae pretium nisi. Pellentesque vel leo eu quam eleifend laoreet ut at diam.</p>
+                    </article>
+                </section>
+
+            </main>
+            <aside role="complementary">
+                <!-- Seccion lateral -->
+                <h2>Proximos cursos</h2>
+                <div>
+                    <h3>PHP</h3>
+                    <p>Sed at cursus nunc. Nullam tempus dui id massa feugiat, nec feugiat ligula ultricies. Nullam pharetra purus id erat iaculis rutrum. Aliquam viverra eu lectus interdum tempus. Quisque ac orci eu metus tristique rhoncus. Pellentesque vitae pretium nisi. Pellentesque vel leo eu quam eleifend laoreet ut at diam.</p>
+                </div>
+                <div>
+                    <h3>MySQL</h3>
+                    <p>Sed at cursus nunc. Nullam tempus dui id massa feugiat, nec feugiat ligula ultricies. Nullam pharetra purus id erat iaculis rutrum. Aliquam viverra eu lectus interdum tempus. Quisque ac orci eu metus tristique rhoncus. Pellentesque vitae pretium nisi. Pellentesque vel leo eu quam eleifend laoreet ut at diam.</p>
+                </div>
+
+                <table width="300">
+                    <caption><h2>Proximos cursos</h2></caption>
+                    <thead>
+                        <!-- Cabeza de tabla -->
+                        <tr>
+                            <!-- Fila de tabla -->
+                            <th><!-- Cabecera de columna -->Curso</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+
+                    <tfoot>
+                        <tr>
+                            <td colspan="2" align="center"> No te los pierdas Ome'!</td>
+                        </tr>
+                    </tfoot>
+
+                    <tbody align="center">
+                        <tr>
+                            <td rowspan="3" >PHP</td>
+                            <td>35$</td>
+                        </tr>
+                        <tr>
+                            <td>45$ (Sabatino)</td>
+                        </tr>
+                        <tr>
+                            <td>65$ (Dominical)</td>
+                        </tr>
+                        <tr>
+                            <td>MySQL</td>
+                            <td>30$</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript</td>
+                            <td>35$</td>
+                        </tr>
+                        <tr>
+                            <td>jQuery</td>
+                            <td>55$</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </aside>
+        </header>
+
+
+    </div>
+
+    <footer role="contentinfo">
+        <!-- Pie de pagina -->
+        <div class="nosotros">
+            <h3>Sobre nosotros</h3>
+            <p>Sed at cursus nunc. Nullam tempus dui id massa feugiat, nec feugiat ligula ultricies. Nullam pharetra purus id erat iaculis rutrum. Aliquam viverra eu lectus interdum tempus. Quisque ac orci eu metus tristique rhoncus. Pellentesque vitae pretium nisi. Pellentesque vel leo eu quam eleifend laoreet ut at diam.</p>
+        </div>
+        <div class="menu">
+            <nav class="navegation">
+                <!-- Nvegacion -->
+                menu here
+
+            </nav>
+        </div>
+        <p>Todos lo derechos reservados &copy; &mdash; Cursos online</p>
+    </footer>
+</body>
+
+</html>

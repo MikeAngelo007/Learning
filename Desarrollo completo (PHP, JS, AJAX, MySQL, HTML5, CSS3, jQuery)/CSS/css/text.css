@@ -1,0 +1,74 @@
+@font-face{
+    font-family: 'Michroma';
+    src: url(fonts/Michroma.ttf);
+}
+
+dl{
+    font-family: Michroma, Arial, Helvetica, sans-serif;
+}
+
+/*Font family*/
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2{
+    font-family:  Verdana, Geneva, Tahoma, sans-serif;
+    /*Font size*/
+    font-size: 30px;
+
+    /*Font style*/
+    font-style: italic;
+
+    /*Alineacion*/
+    text-align: center;
+
+    /*Espaciado entre letras*/
+    letter-spacing: 10px;
+}
+
+p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 21px;
+    
+    /*text-transform
+    uppercase: Todo mayuscula
+    lowercase: Todo minuscula
+    capitalize: Cada palabra inicia con una mayuscula*/
+    text-transform: capitalize;
+
+    /*Font weight*/
+    font-weight: bold;
+
+    /*line height -----> Interlineado*/
+
+    line-height: 40px;
+
+    text-align: justify;
+
+    text-indent: 60px;
+}
+
+h3{
+    /*Font variant
+    small-caps: Hara que todo este en mayuscula PERO la primera mayuscula mas grande */
+    font-variant: small-caps;
+    text-decoration: underline;
+    text-align: right;
+}
+
+a {
+    /*Text decoration*/
+    text-decoration: none;
+}
+
+h2.contenedor{
+    text-decoration: line-through;
+    font-weight: normal;
+}
+
+h2.curso{
+    /*Todo en una linea: font style - font variant - font weight - font size- line height- font family*/
+    font: italic small-caps normal 30px/30px Verdana!important;
+}
