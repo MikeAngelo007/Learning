@@ -1,0 +1,42 @@
+nav{
+    /*Background*/
+    background: yellow;
+    
+    /*Alto y ancho*/
+    height: 580px;
+    width: 581px;
+    
+    /*Margenes
+    auto: si se usa en left y right, se encargara de que el contenedor este centrado. Si se usa en solo uno, el contenedor se alineara a la izquierda o derecha de acuerdo a como este configurado*/
+    
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+}
+
+body{
+    background: red;
+}
+
+nav.navegation{
+    height: 400px;
+}
+
+footer{
+    background: gray;
+    
+    margin-bottom: 100px;
+    
+    /*Padding: Es como el margin, solo que se aplica hacia dentro del contenedor y no hacia afuera. si se coloca solo 'padding' se applica a los 4 lados*/
+    padding-left: 40px;
+}
+
+header main section div ol{
+    background: purple;
+}
+
+tbody tr td{
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
