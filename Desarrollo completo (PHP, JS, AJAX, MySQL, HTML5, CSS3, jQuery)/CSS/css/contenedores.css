@@ -7,12 +7,16 @@ nav{
     width: 581px;
     
     /*Margenes
+    margin: Se puede colocar una sola medida que se aplica a cada uno de los 4 lados o colocar cada medida en este orden: top right bottom left
     auto: si se usa en left y right, se encargara de que el contenedor este centrado. Si se usa en solo uno, el contenedor se alineara a la izquierda o derecha de acuerdo a como este configurado*/
-    
+    /*
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 80px;
+    */
+    
+    margin: 50px auto 80px auto;
 }
 
 body{
@@ -28,8 +32,12 @@ footer{
     
     margin-bottom: 100px;
     
-    /*Padding: Es como el margin, solo que se aplica hacia dentro del contenedor y no hacia afuera. si se coloca solo 'padding' se applica a los 4 lados*/
-    padding-left: 40px;
+    /*Padding: Es como el margin, solo que se aplica hacia dentro del contenedor y no hacia afuera. Se puede colocar una sola medida que se aplica a cada uno de los 4 lados o colocar cada medida en este orden: top right bottom left*/
+    padding: 40px 30px 10px 5px;
+    
+    /*Evitar el margin collapse*/
+    /*overflow: hidden;*/
+    /*border-bottom: 1px solid black;*/
 }
 
 header main section div ol{
