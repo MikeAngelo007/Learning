@@ -35,9 +35,9 @@ footer{
     /*Padding: Es como el margin, solo que se aplica hacia dentro del contenedor y no hacia afuera. Se puede colocar una sola medida que se aplica a cada uno de los 4 lados o colocar cada medida en este orden: top right bottom left*/
     padding: 40px 30px 10px 5px;
     
-    /*Evitar el margin collapse*/
+    /*Evitar el margin collapse: Para este ejemplo, se le dio margin-bottom a table y se aplico lo de margin-collapse en el aside.complementary*/
     /*overflow: hidden;*/
-    /*border-bottom: 1px solid black;*/
+    /*border-bottom: 1px solid transparent;*/
     /*padding:1px;*/
 }
 
@@ -46,7 +46,9 @@ table{
 }
 
 aside.complementary{
-    overflow: hidden;
+    /*overflow: hidden;*/
+    border-bottom: 1px solid transparent;
+    background:white;
 }
 
 aside.especial{
