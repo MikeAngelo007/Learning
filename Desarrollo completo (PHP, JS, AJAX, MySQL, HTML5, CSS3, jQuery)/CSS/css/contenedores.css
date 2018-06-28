@@ -38,6 +38,19 @@ footer{
     /*Evitar el margin collapse*/
     /*overflow: hidden;*/
     /*border-bottom: 1px solid black;*/
+    /*padding:1px;*/
+}
+
+table{
+    margin-bottom: 100px;
+}
+
+aside.complementary{
+    overflow: hidden;
+}
+
+aside.especial{
+    background: blue;
 }
 
 header main section div ol{
