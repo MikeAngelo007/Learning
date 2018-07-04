@@ -2,6 +2,20 @@ aside{
     width: 30%;
     float:left;
 }
+h2.contenedor{
+    margin-top:140px;
+}
+header{
+    /*Position fixed:
+    Independiza el elemento y lo coloca en la parte superior. Al hacer scroll, el elemento subira y bajara manteniendose fijo en su posicion.
+    Por ello, se utiliza el margin, top, left... para organizarlo*/
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: yellow;
+    position: fixed;
+    
+}
 .clearfix:before,
 .clearfix:after{
     content:'';
@@ -9,10 +23,49 @@ aside{
     
 }
 
+.verde{
+    background: green;
+}
+
+.azul{
+    background: blue;
+}
+
+div.padre{
+    width: 400px;
+    height: 400px;
+    /*Posicion Relative y Absolute
+     Es necesario que el padre tenga position: relative, para que el hijo pueda tener position:absolute
+     
+     Por defecto, le hijo estara en la esquina superior izquierda
+     
+     pero si queremos ponerlo en alguna otra esquina, es:
+     superior derecha => right:0
+     inferior derecha => right:0; bottom:0;
+     inferior izquierda => bottom:0 
+     ---------------------------------
+     En pixeles:
+     left: Si colocamos left, a medida que aumente, el hijo se ubicara mas a la derecha. Si lo colocamos en menos (-), el hijo se ubicara por fuera del padre mas a la izquierda, a medida que el valor disminuya.
+     bottom: Si colocamos bottom, a medida que el aumente, el hijo se ubicara mas arriba.Si lo colocamos en menos (-), el hijo se ubicara por fuera del padre mas hacia abajo, a medida que el valor disminuya.
+     right: Si colocamos right, a medida que aumente, el hijo se ubicara mas a la izquierda. Si lo colocamos en menos (-), el hijo se ubicara por fuera del padre mas a la derecha, a medida que el valor disminuya.
+     top: Si colocamos top, a medida que el aumente, el hijo se ubicara mas abajo.Si lo colocamos en menos (-), el hijo se ubicara por fuera del padre mas hacia arriba, a medida que el valor disminuya.
+     */
+    position: relative;
+}
+div.hijo{
+    width: 20px;
+    height: 20px;
+
+    /*Ejemplo position absolute*/
+    position: absolute;
+    left: 10px;
+    bottom: 50px;
+}
+
 .clearfix{
     clear:both;
 }
-main{
+div.contenido{
     width: 70%;
     float: right;
 }
@@ -22,7 +75,7 @@ nav{
     
     /*Alto y ancho*/
     height: 580px;
-    width: 581px;
+    width: 50%;
     
     /*Margenes
     margin: Se puede colocar una sola medida que se aplica a cada uno de los 4 lados o colocar cada medida en este orden: top right bottom left
