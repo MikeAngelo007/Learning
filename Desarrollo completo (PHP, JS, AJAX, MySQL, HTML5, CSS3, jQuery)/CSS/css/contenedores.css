@@ -16,6 +16,23 @@ header{
     position: fixed;
     
 }
+
+/*Table y table-cell puedens er muy utiles para centrar un texto de varias lineas. si es una sola linea , se puede usar line-height*/
+.gran-promocion{
+    display: table;
+    width: 100%;
+    background: gray;
+    height: 300px;
+
+
+    border-top-left-radius: 40px;
+    
+}
+.text-promo{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
 .clearfix:before,
 .clearfix:after{
     content:'';
@@ -51,6 +68,18 @@ div.padre{
      top: Si colocamos top, a medida que el aumente, el hijo se ubicara mas abajo.Si lo colocamos en menos (-), el hijo se ubicara por fuera del padre mas hacia arriba, a medida que el valor disminuya.
      */
     position: relative;
+
+    /*Bordes redondeados*/
+    
+    /*Metodo largo: */
+    /* border-top-left-radius: 30px;
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 200px;
+    border-bottom-left-radius: 400px; */
+
+    /*Metodo corto: */
+    /* border-radius: 200px; */
+    border-radius: 10px 20px 30px 40px;
 }
 div.hijo{
     width: 20px;
@@ -60,6 +89,8 @@ div.hijo{
     position: absolute;
     left: 10px;
     bottom: 50px;
+
+    border-radius: 50%;
 }
 
 .clearfix{
@@ -119,7 +150,24 @@ nav.navegation{
 }
 
 footer{
-    background: gray;
+    /*Una sola imagen como fondo:
+    background: url(../img/css3.png);
+    background-repeat: no-repeat;
+    --- background-size: cover; 
+    background-size: 120px;
+
+    ---background-position: eje-x eje-y
+    ---En eje-y, aumenta hacia abajo
+    ---En eje-x, aumenta hacia la derecha
+    background-position: 278px 23px; */
+
+
+    /*Varias imagenes como fondo: se separan por una coma en el mismo orden en todas y cada una de las caracteristicas.*/
+    background: url(../img/css3.png), url(../img/html5.png), url(../img/js.jpg);
+    background-repeat: no-repeat,repeat-x,repeat-y;
+    background-size: 50px, 100px, 150px;
+    background-position: top right, top left, center center;
+
     
     margin-bottom: 100px;
     

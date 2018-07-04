@@ -41,7 +41,7 @@ h1 {
 .inline-block span,
 .inline-block em, 
 .inline-block b{
-    /*Con inline-block*/
+    /*Con inline-block, se aplica el padding y el elemento si se desplaza vertical y horizontalmente PERO mantiene la linea, como en inline.*/
     display: inline-block;
     height: 50px; 
     width:250px;
@@ -49,17 +49,43 @@ h1 {
 }
 
 .block p {
+    /*Block aplica el padding y todas las caracteristicas que le digamos, pero a diferencia de inline, ubica los elementos uno sobre el otro y toman todo el espacio disponible... a menos de que se le indique un tamaño especifico*/
     border: 1px solid red;
+
+}
+.block h1{
+    display: inline;
+    
+}
+
+.none p{
+/*Display none eliminara el elemento visualmente, es decir, no sera visible en la pagina pero seguira existiendo en el codigo.*/
+display: none;
+}
+
+.none h1{
+    text-align: center;
+    /* display: none; */
 }
 
 .contenedor-flex {
+    /*Display flex lo mistrara en flex-box (Todo en conjunto y no separado)*/
     display: flex;
+    /*flex-direction lo mostrara en columna o en fila*/
     flex-direction: row;
+
+    /*Mostrara todo sin cambiar su tamaño, asi sea necesario usar varias filas. Si no se tuviera, mostraria todo mas pequeño pero en una sola fila (o columna)*/
     flex-wrap: wrap;
+
+    /*Flex-start es por defecto, pero flex-end lo alinea todo hacia el final de la fila, mientras flex-start lo alinea todo hacia el inicio*/
     justify-content: flex-start;
     justify-content: flex-end;
+
+    /*center no los lleva ni al inicio ni al final de la fila, sino al centro*/
     justify-content: center;
+     /*Space-around crea un espacio alrededor de los elementos*/
     justify-content: space-around;
+    /*Space-around crea un espacio entre los elementos*/
     justify-content: space-between;
 
 }
