@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pagina Web 2.0</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/colors.css">
+    <!--   rel="stylesheet" hara que  nuestra hoja de estilos quede enlazada a este archivo HTML y se le apliquen todos los estilos mencionados   -->
+
+    <!-- <style>
+        /*<style>: Esta etiqueta se usa en body y se escribe el estilo dentro de ella, aplicandose a todo el documento.
+        <*** style=""> : Se puede usar como un atributo en cada etiqueta , ademas es bueno para elementos en particular  o que requieran de un enfasis especial ya que si se coloca un style en cada etiqueta, al momento de hacer cambios puede ser arduo y molesto.*/
+
+        h2{
+            color:blue;
+        }
+
+        p{
+            color:yellow;
+        }
+    
+    </style> -->
+</head>
+<body>
+    <h2 class="contenedor" id="contein">Divs, Navs y otros elementos</h2>
+
+    <div class="contenedor" id="contein">
+        <header role="banner">
+        <!-- Cabecera -->
+        <!-- ROLE: Establece el rol de cada etiqueta y hace que la pagina sea mas accesible para las personas. Ya que las personas pueden navega por los roles y se les leera lo que esta dentro de cada uno-->
+        
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo test">
+
+            </div>
+        </header>
+            <nav class="navegation" role="navigation">
+                <!-- Nvegacion -->
+                <a href="Naipes/naipes.html">Naipes</a>
+
+                <ul>
+                    <!-- Unordered list-->
+                    <li><!-- List Item--><a href="index.html">Sobre nosotros</a></li>
+                    <li><a href="#">Cursos</a></li>
+                    <li><a href="#news">Noticias</a></li>
+                    <li><a href="http://google.com" target="_blank">Google</a></li>
+                    <li><a href="form.html">Formularios</a></li>
+                    <p>Holiwi</p>
+                    <li><a href="Multimedia/multimedia.html">Videos y audios</a></li>
+
+                    <ul>
+                        <!-- Unordered list-->
+                        <li><!-- List Item--><a href="index.html">Sobre nosotros</a></li>
+                        <li><a href="#">Cursos</a></li>
+                        <li><a href="#news">Noticias</a></li>
+                        <li><a href="http://google.com" target="_blank">Google</a></li>
+                        <li><a href="form.html">Formularios</a></li>
+                        <p>Holiwi</p>
+                        <li><a href="Multimedia/multimedia.html">Videos y audios</a></li>
+                    </ul>
+
+                </ul>
+
+                <p>Bazinga!</p>
+
+                
+
+
+            </nav>
+        <div class="contenido clearfix">
+            <main class="contenedor-principal" role="main">
+                <!-- Contenedor principal -->
+                
+                <section>
+                    <h2 class="curso">Cursos</h2>
+                    <div id="cursos">
+                        <button>Ver todos</button>
+                        <h3 class="curso curso-online"> Html5</h3>
+                        <img src="img/html5.png" alt="HTML5" width="200" id="logo">
+                        <a href="docs/programa-html5.pdf" download>Descargar programa</a>
+
+                        <ul id="ulist">
+                            <h2>Ventajas del curso</h2>
+                            <li>Lo puedes tomar en linea</li>
+                            <li>Avanzas a ti ritmo
+                                <ul>
+                                    <li>Otros items</li>
+                                </ul>
+                            </li>
+                            <li>Es bastante completo
+                                <ul>
+                                    <li>Otros items</li>
+                                </ul>
+                            </li>
+                            <h2>Ventajas del curso</h2>
+                            
+                        </ul>
+
+                        <ol id="or">
+                            <!-- Ordered list -->
+                            <h2 class="tema">Temario</h2>
+                            <li>Basico HTML5</li>
+                            <ol>
+                                <li>Semanticos</li>
+                                <li>Header</li>
+                                <li><img src="img/css3.png" alt="CSS3" width="200">
+                                    <ol>
+                                        <li>Semanticos</li>
+                                        <li>Header</li>
+                                        <li><img src="img/css3.png" alt="CSS3" width="200"></li>
+        
+                                        
+                                    </ol></li>
+
+                                
+                            </ol>
+                            <li>Etiquetas HTML</li>
+                            <ul>
+                                <li>Nav</li>
+                                <li>Div</li>
+                                <li><img src="img/css3.png" alt="CSS3" width="200"></li>
+                            </ul>
+                            <li>Crear enlaces</li>
+                            <li>Crear listas</li>
+                        </ol>
+
+                        <dl>
+                            <!--Definition list-->
+                            <dt>
+                                <!-- Definition term -->
+                                HTML5
+                            </dt>
+                            <dd>
+                                <!-- Definition description -->
+                                Lenguaje para estructuracion de paginas web
+                            </dd>
+
+                            <dt> CSS3 </dt>
+                            <dd>Lenguaje para formato HTML5</dd>
+                        </dl>
+                    </div>
+                    <div>
+                        <h3> CSS3</h3>
+                        <img src="img/css3.png" alt="CSS3" width="200">
+                    </div>
+                    <div>
+                        <h3 class="curso curso-presencial">JavaScript</h3>
+                        <img src="img/js.jpg" alt="JavaScript" width="200">
+                    </div>
+                </section>
+
+                <div class="padre verde">
+                        <div class="hijo azul">
+    
+                        </div>
+    
+                    </div>
+                
+                <div class="gran-promocion">
+                    <div class="text-promo">
+
+                        texto para ser centrado
+
+                    </div>
+                </div>
+
+                <section id="news">
+                    <!-- Seccion -->
+                    <h2>Ultimas noticias</h2>
+                    <article role="article">
+                        <h3>Progrmacion en el siglo XXI</h3>
+                        <p>Sed at cursus nunc. Nullam tempus dui id massa feugiat, nec feugiat ligula ultricies. Nullam pharetra purus id erat iaculis rutrum. Aliquam viverra eu lectus interdum tempus. Quisque ac orci eu metus tristique rhoncus. Pellentesque vitae pretium nisi. Pellentesque vel leo eu quam eleifend laoreet ut at diam.</p>
+                    </article>
+
+                    <article role="article">
+                        <h3>Amgular VS React</h3>
+                        <p>Sed at cursus nunc. Nullam tempus dui id massa feugiat, nec feugiat ligula ultricies. Nullam pharetra purus id erat iaculis rutrum. Aliquam viverra eu lectus interdum tempus. Quisque ac orci eu metus tristique rhoncus. Pellentesque vitae pretium nisi. Pellentesque vel leo eu quam eleifend laoreet ut at diam.</p>
+                    </article>
+                </section>
+
+            </main>
+            <aside class="complementary" role="complementary">
+                <!-- Seccion lateral -->
+                <h2>Proximos cursos</h2>
+                <div>
+                    <h3>PHP</h3>
+                    <p>Sed at cursus nunc. Nullam tempus dui id massa feugiat, nec feugiat ligula ultricies. Nullam pharetra purus id erat iaculis rutrum. Aliquam viverra eu lectus interdum tempus. Quisque ac orci eu metus tristique rhoncus. Pellentesque vitae pretium nisi. Pellentesque vel leo eu quam eleifend laoreet ut at diam.</p>
+                </div>
+                <div>
+                    <h3>MySQL</h3>
+                    <p>Sed at cursus nunc. Nullam tempus dui id massa feugiat, nec feugiat ligula ultricies. Nullam pharetra purus id erat iaculis rutrum. Aliquam viverra eu lectus interdum tempus. Quisque ac orci eu metus tristique rhoncus. Pellentesque vitae pretium nisi. Pellentesque vel leo eu quam eleifend laoreet ut at diam.</p>
+                </div>
+
+                <table width="300">
+                    <caption><h2>Proximos cursos</h2></caption>
+                    <thead>
+                        <!-- Cabeza de tabla -->
+                        <tr>
+                            <!-- Fila de tabla -->
+                            <th><!-- Cabecera de columna -->Curso</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+
+                    <tfoot>
+                        <tr>
+                            <td colspan="2" align="center"> No te los pierdas Ome'!</td>
+                        </tr>
+                    </tfoot>
+
+                    <tbody align="center">
+                        <tr>
+                            <td rowspan="3" >PHP</td>
+                            <td>35$</td>
+                        </tr>
+                        <tr>
+                            <td>45$ (Sabatino)</td>
+                        </tr>
+                        <tr>
+                            <td>65$ (Dominical)</td>
+                        </tr>
+                        <tr>
+                            <td>MySQL</td>
+                            <td>30$</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript</td>
+                            <td>35$</td>
+                        </tr>
+                        <tr>
+                            <td>jQuery</td>
+                            <td>55$</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </aside>
+        </div>
+            <aside class="especial">
+                <h2>Quieres una especializacion?</h2>
+                <p>Visita Udemy.com para mas info</p>
+            </aside>
+        
+        
+
+
+    </div>
+
+    <footer role="contentinfo">
+        <!-- Pie de pagina -->
+        <div class="nosotros">
+            <h3>Sobre nosotros</h3>
+            <p>Sed at cursus nunc. Nullam tempus dui id massa feugiat, nec feugiat ligula ultricies. Nullam pharetra purus id erat iaculis rutrum. Aliquam viverra eu lectus interdum tempus. Quisque ac orci eu metus tristique rhoncus. Pellentesque vitae pretium nisi. Pellentesque vel leo eu quam eleifend laoreet ut at diam.</p>
+        </div>
+        <div class="menu">
+            <nav>
+                <!-- Nvegacion -->
+                <ul>
+                        <!-- Unordered list-->
+                        <li><!-- List Item--><a href="index.html">Sobre nosotros</a></li>
+                        <li><a href="#">Cursos</a></li>
+                        <li><a href="#news">Noticias</a></li>
+                        <li><a href="http://google.com" target="_blank">Google</a></li>
+                        <li><a href="form.html">Formularios</a></li>
+                        <p>Holiwi</p>
+                        <li><a href="Multimedia/multimedia.html">Videos y audios</a></li>
+                    </ul>
+
+            </nav>
+        </div>
+        <p>Todos lo derechos reservados &copy; &mdash; Cursos online</p>
+    </footer>
+</body>
+
+</html>

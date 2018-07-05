@@ -1,0 +1,66 @@
+body{
+    /*color por Nombre (en ingles)*/
+    background: lemonchiffon;
+}
+nav{
+    /*Color por codigo Hexadecimal*/
+    background: #ff3245;
+}
+aside{
+    /*Color por RGB (Red-Green-Blue). el '0.75' al final implica que tiene 0.75 de transparencia, este puede ir desde 0 hasta 1, donde 0 es transparente y 1 es nada de transparencia. Esto ultimo es opcional, si no se usa, se tomara como que el color no tiene transparencia (Es lo mismo que hsla).*/
+    background: rgb(120, 203, 145, 0.75);
+}
+h2{
+    /*Color con hsl (hue-saturation-lightness)
+    orden => matiz, saturacion, luminosidad
+    el matiz va desde 0 hasta 359
+    el '0.75' al final implica que tiene 0.75 de transparencia, este puede ir desde 0 hasta 1, donde 0 es transparente y 1 es nada de transparencia. Esto ultimo es opcional, si no se usa, se tomara como que el color no tiene transparencia (Es lo mismo que hsla).*/
+    background: hsl(13, 100%, 25%, 0.55);
+
+    /*opacity da transparencia... a todo, no solo al color*/
+
+    /* opacity: .5; */
+}
+
+p{
+    /*Text shadow = Sombra del texto
+    orden => 
+    A B C D
+    
+    A: Cuantos pixeles se desplazara horizontalmente. Aumenta hacia la derecha.
+    B: Cuantos Pixeles se desplazara verticalmente. Aumenta hacia abajo.
+    C: Cuanto se difuminara la sombra.
+    D: Color de la sombra.*/
+    text-shadow: 5px 10px 6px #ff3245;
+
+
+    
+}
+
+img{
+    /*Box shadow
+    orden => 
+    A B C D E
+    
+    A: Cuantos pixeles se desplazara horizontalmente. Aumenta hacia la derecha.
+    B: Cuantos Pixeles se desplazara verticalmente. Aumenta hacia abajo.
+    C: Cuanto se difuminara la sombra.
+    D: Cuanto se expandira la sombra.
+    E: Color de la sombra.*/
+    box-shadow: 5px 10px 6px 11px blue;
+}
+
+div#cursos{
+    /*Degradado*/
+    /* background: linear-gradient(red,blue) */
+    /* background: linear-gradient(to right,red,blue) */
+    /* background: linear-gradient(to left, red,blue) */
+    /* background: linear-gradient(to bottom, red,blue) */
+    /* background: linear-gradient(to top, red,blue) */
+    /* background: linear-gradient(125deg, red,blue) */
+    /* background: radial-gradient( red,blue) */
+
+    /*El porcentaje de usa para determinar donde inicia uno o el otro*/
+
+    background: linear-gradient(red 10%,blue 90%)
+}
