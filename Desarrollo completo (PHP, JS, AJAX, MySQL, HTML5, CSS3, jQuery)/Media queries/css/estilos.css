@@ -1,0 +1,55 @@
+/*Recuerda: Para box-sizing inicia aqui*/
+html{
+    box-sizing: border-box;
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+/* Termina aqui */
+
+
+body{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
+p{
+    font-weight: 400;
+}
+img{
+    /*No mida mas de su tamaño*/
+    max-width: 100%;
+}
+
+
+
+/*Media queries*/
+
+@media only screen and (max-width: 599px){
+    body{
+        background: yellowgreen;
+    }
+
+    h1{
+        color: red;
+    }
+} 
+
+@media only screen and (min-width: 600px) and (max-width:799px){
+    p{
+        color:white;
+        background: black;
+    }
+
+    img{
+        float: right;
+    }
+}
+
+@media only screen and (min-width:800px){
+    body{
+        background: linear-gradient(red,blue);
+        height: 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+}
