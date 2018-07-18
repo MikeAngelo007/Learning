@@ -1,0 +1,59 @@
+/*Recuerda: Para box-sizing inicia aqui*/
+html{
+    box-sizing: border-box;
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+/* Termina aqui */
+
+
+body{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
+p{
+    font-weight: 400;
+}
+img{
+    /*No mida mas de su tamaño*/
+    max-width: 100%;
+}
+
+div.contenedor{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.contenido-interior::after{
+    clear: both;
+    display: block;
+    content: '';
+}
+div.caja{
+    padding: 0 20px;
+}
+
+div.caja div.contenido{
+    background: green;
+    padding: 20px;
+}
+
+/*Media queries*/
+
+/*Mobile first*/
+@media only screen and (min-width: 500px){
+    div.caja{
+        width: 33.3%;
+        float: left;
+    }
+}
+@media only screen and (min-width: 750px){
+    body{
+        background: blue;
+    }
+}
+@media only screen and (min-width: 900px){
+    div.caja{
+        font-size: 80px;
+    }
+}
