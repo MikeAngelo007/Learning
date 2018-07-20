@@ -97,11 +97,116 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+html{
+    box-sizing: border-box;
+}
+*,*:before,*:after{
+    box-sizing: inherit;
+}
+
+body{
+    background: #f2f2f2;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h2{
+    font-family: 'Oswald', sans-serif;
+}
+ /* Header */
+ div.hero{
+     background: url(../img/encabezado.jpg);
+     height: 100vh;
+     background-position: top center;
+     background-size: cover;
+ }
+
+ div.contenido-header{
+     padding-top: 20px;
+ }
+ nav.redes-sociales{
+     text-align: center;
+ }
+ nav.redes-sociales a{
+     color: #ffffff;
+     font-size: 2em;
+     margin: 0 10px;
+ }
+
+ /*Como el profe puso margin-right: 20px*/
+ /*Pa' que quedara centrado...
+ nav.redes-sociales a:last-child{
+     margin-right: 0;
+ }*/
+
+
+ div.informacion-evento{
+     text-align: center;
+     color: white;
+     /* P.M */
+     padding: 0 20px;
+ }
+ 
+ @media only screen and (min-width:768px){
+    div.informacion-evento{
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+}
+
+ div.informacion-evento p{
+     margin: 0;
+     display: inline;
+     font-size: 20px;
+     text-transform: uppercase;
+ }
+
+ div.informacion-evento p i{
+     color: #fe4918;
+     font-size: 2rem;
+     /*P.M*/
+     margin-right: 10px;
+ }
+
+ p.fecha{
+     float:left;
+ }
+p.ciudad{
+    float: right;
+    text-align: right;
+}
+p.slogan{
+    text-transform: none!important;
+}
+p.slogan span{
+    font-weight: bold;
+}
+/*--- Alteracion Personal de Mike ---------*/
+span.red-mike{
+    color:red!important;
+}
+span.blue-mike{
+    color:blue;
+}
+span.yellow-mike{
+    color: yellow;
+}
 
 
 
-
-
+/*-----------------------------------------*/
+h1.nombre-sitio{
+    font-size: 5.8vw;
+    text-transform: uppercase;
+    font-family: 'PT Sans', sans-serif;
+}
+@media only screen and (min-width:768px){
+    h1.nombre-sitio{
+        font-size: 11.5vw;
+        margin: 0;
+        line-height: 1;
+    }
+}
 
 
 
