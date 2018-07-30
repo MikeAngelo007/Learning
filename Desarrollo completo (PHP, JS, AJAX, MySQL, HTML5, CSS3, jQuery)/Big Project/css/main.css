@@ -169,6 +169,15 @@ h3{
     margin-top: 20px;
     display: inline-block;
     transition: all 0.3s ease-out;
+
+    border: 2px solid #fe4918;
+}
+
+.button.hollow,
+.button.hollow:hover{
+    background: white;
+    color: #fe4918;
+
 }
 
 .button:hover{
@@ -612,8 +621,13 @@ div.tabla-precio{
     background: white;
     padding: 40px 0;
     text-align: center;
+    transition: all .3s ease;
 }
-
+div.tabla-precio:hover{
+    transform: scale(1.1);
+    border: 1px solid #fe4918;
+    box-shadow: 0px 0px 50px #666;
+}
 div.tabla-precio ul li{
     font-family: 'PT Sans', Sans-serif;
     font-size: 14px;
@@ -633,6 +647,99 @@ div.tabla-precio p.numero{
     color: black;
     margin: 20px 0;
 }
+div.tabla-precio ul li:before{
+    /*Declaramos la font family para usar iconos de FontAwesome 5.
+    en content, se coloca el unicode del icono que deseamos.
+    Font-weight es un requerimiento para que el icono se muestre.*/
+    font-family: 'Font Awesome 5 Free';
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 5px;
+    font-size: 18px;
+    color: green;
+    -webkit-font-smoothing: antialiased;
+    content: '\f00c';
+    font-weight: 900;
+}
+
+
+/* MAPA */
+
+div.mapa{
+    height: 420px;
+    background: green;
+}
+
+/* Testimoniales */
+div.testimoniales{
+    padding-bottom: 20px; 
+}
+div.testimonial{
+    padding: 5px;
+}
+@media only screen and (min-width:768px){
+    div.testimonial{
+        float: left;
+        width: 33.3%;
+    }
+}
+
+blockquote{
+    background: white;
+    border: 1px solid #e1e1e1;
+    position: relative;
+    margin: 0 0 10px 0;
+    padding-bottom: 20px;
+}
+
+blockquote p{
+    text-align: justify!important;
+    font-size: 1em!important;
+    font-family: 'PT Sans', Sans-serif;
+    padding: 0px 20px 0px 65px;
+}
+
+blockquote p:before{
+    content: '\201c';
+    position: absolute;
+    left: 13px;
+    top: 8px;
+    font-size: 8rem;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    color: #fe4918;
+}
+
+footer.info-testimonial{
+    padding: 0;
+}
+footer.info-testimonial img{
+    float: left;
+    width: 20%;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+footer.info-testimonial cite{
+    text-align: left;
+    color: #fe4918;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding-top: 20px;
+    width: 66.6%;
+    float: right;
+
+    font-weight: bold;
+    font-style: normal;
+}
+footer.info-testimonial cite span{
+    color: black;
+    display: block;
+    text-transform: none;
+    margin-top: 5px;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
