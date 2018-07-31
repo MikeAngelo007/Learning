@@ -791,13 +791,13 @@ div.cuenta-regresiva ul li{
 
 
 /* Footer */
-footer{
+footer.site-footer{
     background: #353535;
     padding-top: 40px;
     margin-top: 20px;
 }
 
-footer .contenedor > div{
+footer.site-footer .contenedor > div{
     color: white;
     padding: 0px 20px;
     font-size: 12px;
@@ -805,31 +805,31 @@ footer .contenedor > div{
 }
 
 @media only screen and (min-width:768px){
-    footer .contenedor > div{
+    footer.site-footer .contenedor > div{
         width: 33.3%;
         float: left;
     }
 }
 
-footer h3{
+footer.side-footer h3{
     color: #ffffff;
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
     margin-bottom: 20px;
 }
 
-footer h3 span{
+footer.site-footer h3 span{
     color: #fe4918;
 }
 
-footer .ultimos-tweets li{
+footer.site-footer .ultimos-tweets li{
     margin-bottom: 10px;
 }
-footer .ultimos-tweets li span{
+footer.site-footer .ultimos-tweets li span{
     color: #fe4918;
 }
 
-footer nav.redes-sociales{
+footer.site-footer nav.redes-sociales{
     text-align: left;
 }
 
