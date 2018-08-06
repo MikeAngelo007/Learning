@@ -674,7 +674,6 @@ div.tabla-precio ul li:before{
 
 div.mapa{
     height: 420px;
-    background: green;
 }
 
 /* Testimoniales */
@@ -896,7 +895,11 @@ div.paquetes .tabla-precio input{
 
 .contenido-dia {
     padding: 20px;
-    /*display: none;*/
+    display: none;
+}
+
+.contenido-dia > div{
+    padding: 5px;
 }
 
 @media only screen and (min-width:768px){
@@ -911,6 +914,7 @@ div.paquetes .tabla-precio input{
 }
 
 .contenido-dia > div label{
+    display: block;
     margin-bottom: 10px;
 }
 
@@ -953,6 +957,24 @@ div.resumen div.total{
 div.resumen input{
     display: block;
     margin: 10px auto;
+}
+
+#lista-productos{
+    background-color: #e1e1e1;
+    padding: 20px;
+    display: none;
+}
+
+#suma-total{
+    text-align: center;
+    font-size: 1.2em;
+    color: #fe4918;
+}
+
+
+#error{
+    text-align: center;
+    clear: both;
 }
 /* ==========================================================================
    ==========================================================================
