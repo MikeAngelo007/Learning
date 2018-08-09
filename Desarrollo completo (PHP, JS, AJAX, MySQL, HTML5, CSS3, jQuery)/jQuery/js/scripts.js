@@ -14,8 +14,99 @@ document.addEventListener('DOMContentLoaded',function(event){
 
 $(function(){
     'use strict';
+    $('.navegacion').show();
+
+    var proximosViajes = ['Londres','Madrid','Barcelona','Paris']
+
+    $.each(proximosViajes, function(i,v){
+        console.log('Indice: '+i+'    Valor:'+v);
+
+        if(i == 0){
+            $('aside').append('<h2>Proximos Viajes</h2>')
+        }
+        $('aside').append('<li>'+ v +'</li>')
+
+    })
 
 
+    var viajesPorFecha = {
+        Primero: 'Londres',
+        Segundo: 'Bogota',
+        Tercero: 'Miami',
+        Cuarto: 'Moscu'
+    }
+
+    $.each(viajesPorFecha, function(i,v){
+        if(i == 'Primero'){
+            $('aside').append('<h2>Por fecha: </h2>')
+        }
+        $('aside').append('<li>'+ i + '-' + v +'</li>')
+
+    })
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////77
+    /* $('.logo img').on('click',cargarAjax);
+
+    function cargarAjax(){
+        $.ajax('promo.txt',{
+            success: agregarContenido,
+            type: 'GET',
+            datatype:'text'
+        })
+    }
+
+    function agregarContenido(data, status, jqxhr){
+        $('aside').text(data); // Asi lo carga como text 
+        //$('aside').html(data); // Asi lo carga como codigo html
+        console.log(status);
+    } */
+
+
+    //$('aside').load('promo.txt'); //Lo carga automaticamente como codigo html
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /* $('.logo img').click(function(){
+        $('main article:first').slideUp(1000);
+    });
+
+    $('aside').click(function(){
+        $('main article:first').slideDown(1000);
+    }); */
+
+    /* $('.logo img').on('click',function(){
+        $(this).animate({'width':'200px'},20000); // 1000 equivale a 1 segundo.
+    });
+
+    $('main article img').on('mouseenter',aumentarImagen);
+    $('main article img').on('mouseleave',disminuirImagen);
+
+    function aumentarImagen(){
+        $(this).animate({'width':'100%'});
+    }
+
+    function disminuirImagen(){
+        $(this).animate({'width':'350px'});
+    } */
+
+    /* $('.logo img').css({'width':'400px'});
+    $('main article h2').css({'color':'#db008d'});
+    $('aside').css({'background-color':'#e1e1e1',
+                    'text-transform':'uppercase'
+    });
+
+
+    $('.navegacion ul li a').on('click',cambiarColor);
+    function cambiarColor(){
+        $('.navegacion').css({'background-color':'red'});
+    } */
+
+    /* $('.navegacion ul li:first a').attr('href'); // Seleccionar un atributo del elemento.
+    $('.navegacion ul li:first a').attr('href','http://udemy.com'); // Cambiar el valor del atributo o agregar un nuevo atributo
+
+
+    $('main article:first img').on('click',function(){
+        $(this).attr('src','img/imagen_2.jpg');
+    }) */
     //$('main').children()[1].childNodes[1].innerText="Test"; // Para tener una idea de como se cambian los valores.
     /* $('main article:first h2').text(); // Ver el texto en el h2
     $('main article:first h2').text('Hola'); // Modificar el texto en el h2
@@ -37,7 +128,7 @@ $(function(){
 
     //$('div.logo img').addClass('activo');
 
-    $('.navegacion').show();
+    
 
     //$('.navegacion nav ul li:first').addClass('activo');
     //$('main article:first').addClass('activo');
