@@ -165,3 +165,20 @@
         }
     });
 })();
+
+
+
+$(function(){
+    $('.programa-evento .info-curso:first').show();
+    $('.menu-programa a:first').addClass('activo');
+    $('.menu-programa a').on('click',function(){
+        $('.menu-programa a').removeClass('activo');
+        $(this).addClass('activo');
+        $('.ocultar').fadeOut();
+
+        var presionado = $(this).attr('href');
+        $(presionado).fadeIn(1000);
+
+        return false; //Esto evita que la pagina salte al id.
+    });
+});

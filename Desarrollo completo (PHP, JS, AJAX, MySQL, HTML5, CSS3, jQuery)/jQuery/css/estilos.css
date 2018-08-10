@@ -24,7 +24,6 @@ div.contenedor {
 /** Navegacion **/
 .navegacion {
   background-color: #db008d;
-  display: none;
 }
 nav {
   width: 1200px;
@@ -77,6 +76,46 @@ main {
   width: 70%;
   float: left;
   padding-right: 40px;
+}
+
+
+/** Servicios **/
+
+div.servicios{
+  margin-top: 30px;
+}
+
+div.servicios nav{
+  background-color: #00b8e4;
+}
+
+div.servicios nav a{
+  padding: 10px;
+  display: inline-block;
+  color: #ffffff;
+  margin: 0;
+}
+div.servicios nav a.activo{
+  background-color: #db008d;
+  border: none;
+}
+div.servicios nav a:hover{
+  background-color: #db008d;
+}
+
+div.nuestros-servicios{
+  position: relative;
+  height: 200px;
+}
+
+div.nuestros-servicios > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  background-color: #db008d;
+  color: white;
+  display: none;
 }
 /** Entradas de post**/
 article {

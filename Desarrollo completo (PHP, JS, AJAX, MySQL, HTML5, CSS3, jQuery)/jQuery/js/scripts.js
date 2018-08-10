@@ -14,7 +14,21 @@ document.addEventListener('DOMContentLoaded',function(event){
 
 $(function(){
     'use strict';
-    $('.navegacion').show();
+
+
+
+
+    $('.servicios nav a').on('click', mostrarTabs);
+
+    function mostrarTabs(){
+        var enlace = $(this).attr('href');
+        $('.nuestros-servicios div').fadeOut();
+        $('.servicios nav a').removeClass('activo');
+
+        $(this).addClass('activo');
+        $(enlace).fadeIn();
+    }
+    /* $('.navegacion').show();
 
     var proximosViajes = ['Londres','Madrid','Barcelona','Paris']
 
@@ -42,7 +56,7 @@ $(function(){
         }
         $('aside').append('<li>'+ i + '-' + v +'</li>')
 
-    })
+    }) */
     /////////////////////////////////////////////////////////////////////////////////////////////////////////77
     /* $('.logo img').on('click',cargarAjax);
 
