@@ -426,6 +426,10 @@ div.contenido-programa{
     width: 100%;
 }
 
+.info-curso{
+    max-height: 533px;
+}
+
 div.programa-evento{
     background: rgba(255, 255, 255, .6);
     padding: 15px;

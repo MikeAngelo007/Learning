@@ -4,20 +4,21 @@
     document.addEventListener('DOMContentLoaded', function(){
 
         //////////////////////////////////////////////////////////////////
+        if(document.getElementsByClassName('mapa').length > 0){
 
+            var map = L.map('mapa').setView([4.678676, -74.046934], 17);
 
-        var map = L.map('mapa').setView([4.678676, -74.046934], 17);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        L.marker([4.678676, -74.046934]).addTo(map)
-            .bindPopup('Este es un lugar de prueba (Google :v)')
-            .openPopup();
-        L.marker([4.65971, -74.055817]).addTo(map)
-            .bindTooltip('Este es un lugar de prueba (Modern Gym)')
-            .openTooltip();
+            L.marker([4.678676, -74.046934]).addTo(map)
+                .bindPopup('Este es un lugar de prueba (Google :v)')
+                .openPopup();
+            L.marker([4.65971, -74.055817]).addTo(map)
+                .bindTooltip('Este es un lugar de prueba (Modern Gym)')
+                .openTooltip();
+        }
 
         ///////////////////////////////////////////////////////////////////
         //Campos Datos usuario
