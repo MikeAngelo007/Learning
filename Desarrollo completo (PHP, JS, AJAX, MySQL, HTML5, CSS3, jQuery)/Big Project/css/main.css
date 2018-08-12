@@ -200,6 +200,56 @@ ul{
     margin: 0;
     padding: 0;
 }
+
+/* Lettering */
+
+h1.nombre-sitio span{
+    position: relative;
+    text-shadow: 0 0 30px black;
+}
+
+@media only screen and (min-width:992px){ /*Aqui es necesario que se tenga lettering*/
+    .char1:hover{
+        top: -20px;
+        color: #fe4918;
+    }
+    .char2:hover{
+        top: -20px;
+        color: #fe4918;
+    }
+    .char3:hover{
+        top: -20px;
+        color: #fe4918;
+    }
+    .char4:hover{
+        top: -20px;
+        color: #fe4918;
+    }
+    .char5:hover{
+        top: -20px;
+        color: #fe4918;
+    }
+    .char6:hover{
+        top: -20px;
+        color: #fe4918;
+    }
+    .char7:hover{
+        top: -20px;
+        color: #fe4918;
+    }
+    .char8:hover{
+        top: -20px;
+        color: #fe4918;
+    }
+    .char9:hover{
+        top: -20px;
+        color: #fe4918;
+    }
+    .char10:hover{
+        top: -20px;
+        color: #fe4918;
+    }
+}
  /* Header */
  div.hero{
      background: url(../img/encabezado.jpg);
@@ -270,7 +320,7 @@ p.slogan span{
     font-weight: bold;
 }
 /*--- Alteracion Personal de Mike ---------*/
-span.red-mike{
+/* span.red-mike{
     color:red!important;
 }
 span.blue-mike{
@@ -278,7 +328,7 @@ span.blue-mike{
 }
 span.yellow-mike{
     color: yellow;
-}
+} */
 
 
 
@@ -305,6 +355,14 @@ div.barra{
     padding: 20px 0;
 }
 
+.fixed{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
 div.logo{
     width: 80%;
     float: left;
@@ -324,9 +382,15 @@ div.logo img{
 }
 
 /* Navegacion principal */
-
 nav.navegacion-principal{
     display: none;
+}
+
+@media only screen and (max-width:767px){
+    nav.navegacion-principal{
+        width: 100%;
+        clear: both;
+    }
 }
 
 nav.navegacion-principal a{
@@ -868,6 +932,14 @@ p.copyright{
 
 /*********** Internas *****/
 
+/* Conferencia */
+body.conferencia .navegacion-principal .activo{
+    border-bottom: 2px solid #fe4918;
+}
+div.galeria a{
+    display: inline-block;
+    margin-bottom: 5px;
+}
 /* Registro */
 
 form.registro h3{
