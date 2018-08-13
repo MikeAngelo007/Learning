@@ -13,10 +13,14 @@
       <h1>Aprendiendo PHP</h1>
 
         <div class="contenido">
-            <?php
+          <?php
+            $nombre = 'Miguel';
+            $apellido = 'Tovar';
 
+            echo "<h1>{$nombre} {$apellido} Arigato</h1>"
+          ?>
 
-            ?>
+          <h1><?php echo $nombre . " " . $apellido?></h1>
               
         </div>
     </div>

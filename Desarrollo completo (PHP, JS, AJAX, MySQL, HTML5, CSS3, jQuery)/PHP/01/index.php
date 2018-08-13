@@ -14,7 +14,7 @@
 
         <div class="contenido">
             <?php
-
+              echo 'Probado 1...2..3';
             ?>
               
         </div>

@@ -14,8 +14,21 @@
 
         <div class="contenido">
             <?php
+              $hola = 'Hola mundo';
+              $numero = 20;
+              echo $hola;
+              echo $numero;
 
+              // Las variables no pueden iniciar por numeros en el nombre, tampoco pueden tener un guion, toca usar guin bajo.
 
+              $numeros99 = 99;
+              echo $numeros99;
+
+              $probando_text = 'Bum!';
+              echo $probando_text;
+
+              $saludos = '<h1>Que lindo!</h1>';
+              echo $saludos;
             ?>
               
         </div>
