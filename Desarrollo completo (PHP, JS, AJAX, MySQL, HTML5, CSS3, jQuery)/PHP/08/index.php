@@ -14,7 +14,7 @@
 
         <div class="contenido">
           <?php
-            $lenguaje = 'bum';
+            $lenguaje = 'Angular';
 
             switch($lenguaje){
               case 'PHP':
