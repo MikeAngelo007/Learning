@@ -1,5 +1,185 @@
+/*********************************************** Template string */
+
+//const nombre = 'Mike', ocupacion='Estudiante';
+/**Antiguo */
+//console.log('Nombre: '+ nombre + ', ocupacion: '+ocupacion);
+
+/**Nuevo */
+//console.log(`Nombre: ${nombre} y su ocupación es: ${ocupacion}`);
+
+
+
+//const constMessage = document.querySelector('.mensaje');
+
+/* let mess = '<ul>'+
+            '<li> Nombre: '+nombre+'</li>'+
+            '<li> Ocupacion: '+ocupacion+'</li>'+
+            '</ul>';
+constMessage.innerHTML=mess;
+
+let mess2 = `<ul>
+                <li> Nombre: ${nombre} </li>
+                <li> Su Ocupacion: ${ocupacion} </li>
+            </ul>`
+
+constMessage.innerHTML += mess2; */
+
+
+/* let mess = '<ul>'+
+            '<li> Nombre: '+nombre+'</li>'+
+            '<li> Ocupacion: '+ocupacion+'</li>'+
+            '</ul>';
+constMessage.innerHTML=mess; */
+
+/* let mess2 = `<ul>
+                <li> Nombre: ${nombre} </li>
+                <li> Su Ocupacion: ${ocupacion} </li>
+            </ul>`
+
+constMessage.innerHTML = mess2; */
+
+/*********************************************** Funciones dentro de objetos ***********/
+
+/* const Musica = {
+    reproducir:(cancion) => {
+        console.log('Reproduciendo: '+cancion);
+    },
+
+    reproduciendo: function(cancion){
+        let singer = `Reproduciendo: ${cancion}`;
+
+        return singer;
+    },
+    reproduciendo: cancion => `Reproduciendo: ${cancion}`,
+    pausar: () => {
+        console.log('Paused... ');
+    }
+}
+
+Musica.borrar = function(id){
+    console.log(`Borrando cancion #${id}`);
+}
+
+Musica.reproducir('Despacito'); */
+/* Musica.pausar();
+Musica.borrar(134);
+Musica.reproducir('Despacito version salsa');
+
+constMessage.innerHTML += Musica.reproduciendo('Recuerdame') + '</br>';
+constMessage.innerHTML += Musica.reproduciendo(Musica.reproduciendo('Acrobates'))+ '</br>'; */
+
+
+/******************************************************************* Constructor ***************************************************/
+
+
+/* function Tarea(nombre, importancia){
+    this.nombre = nombre;
+    this.importancia = importancia;
+}
+
+class Deber{
+    constructor(nombre, importancia){
+        this.nombre = nombre;
+        this.importancia = importancia;
+    }
+    
+}
+
+const tarea1 = new Tarea('Lavar platos','Medio');
+console.log(tarea1); 
+
+const tarea2 = new Deber('Lavar baño','Medio');
+console.log(tarea2);  */
+
+/******************************************************** Destructor ************************************************/
+/* const cliente = {
+    nombre: 'Miguel',
+    edad: 14,
+    //añoNacimiento: () => (new Date().getFullYear() - this.edad),
+    añoNacimiento: function() {
+        return new Date().getFullYear() - this.edad;
+    },
+    datos: {
+        ubicacion:{
+            pais: 'Colombia',
+            ciudad: 'Bogota'
+        },
+        cuenta:{
+            tipo: 'Premium',
+            origen: '10-02-18',
+            saldo: 50000
+        },
+        gustos:{
+            musica:['Trance','Pop','Rock','Jazz']
+        }
+    }
+};
+console.log(cliente);
+
+
+let {nombre,edad,datos:{ubicacion:{ciudad}},datos:{gustos:{musica}}} = cliente;
+
+
+console.log(nombre);
+console.log(edad);
+console.log(ciudad);
+console.log(musica[2]);
+console.log(cliente.añoNacimiento())
+ */
+/***************************************************************** Literal enhacement ************************************************/
+
+/* let nombreBa = 'Queen', genero = 'Rock', canciones = ['We are the champions','Bohemian Rhapsody','Galileo'];
+
+let banda = { nombreBa,genero,canciones};
+
+console.log(banda); */
+
+/************************************************* Filter, Find,  reduce *****************************************/
+
+/* const personas = [
+    {nombre: 'Fabian',edad: 24, Pais: 'Colombia'},
+    {nombre: 'Marian',edad: 23, Pais: 'Peru'},
+    {nombre: 'Laura',edad: 45, Pais: 'Bolivia'},
+    {nombre: 'Axel',edad: 35, Pais: 'Colombia'},
+    {nombre: 'Lina',edad: 27, Pais: 'Brasil'},
+    {nombre: 'Mike',edad: 28, Pais: 'Colombia'},
+    {nombre: 'Sabrina',edad: 22, Pais: 'Brasil'}
+]
+
+console.table(personas);
+
+console.table(personas.filter( personas => personas.edad > 25));
+
+console.table(personas.find( personas => personas.nombre === 'Laura'));
+
+console.log(personas.reduce((edadTotal,persona) => edadTotal + persona.edad , 0)   / personas.length); */
+
+
+/*************************************************************** Fetch API *********************************************************/
+descargarUsuarios(30);
+
+function descargarUsuarios(cantidad){
+    const api = `https://api.randomuser.me/?nat=US&results=${cantidad}`;
+
+    fetch(api).then(respuesta => respuesta.json()).then(datos => imprimirHTML(datos.results))
+}
+
+function imprimirHTML(datos){
+    datos.forEach(usuario => {
+        console.log(usuario);
+        const li = document.createElement('li');
+        const {name:{first},name:{last},picture:{medium}}=usuario;
+        li.innerHTML=`
+            Nombre: ${first} ${last} </br>
+            Foto: </br>
+            <img src="${medium}">
+        `;
+        document.querySelector('.mensaje').appendChild(li);
+    });
+}
+
 /******************************************************************* DOM ***********************************************************/
-var total, numero1,numero2;
+/* var total, numero1,numero2;
 
 function totalPagar(numero1,numero2){
     total = numero1 * numero2;
@@ -8,7 +188,7 @@ function totalPagar(numero1,numero2){
 
 var granTotal = totalPagar(10,20);
 
-var calculadora = document.getElementById('resultado').innerHTML = granTotal+ " Dolares";
+var calculadora = document.getElementById('resultado').innerHTML = granTotal+ " Dolares"; */
 
 
 
