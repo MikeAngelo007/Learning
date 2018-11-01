@@ -1,0 +1,13 @@
+{
+    "name": "mike-angelo/learning",
+    "description": "Es un proyecto de aprendizaje, aplicando conceptos basicos de desarrollo web por medio de un curso virtual",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Miguel Tovar",
+            "email": "matovaro@unal.edu.co"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {}
+}
