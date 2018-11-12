@@ -422,7 +422,7 @@ nav.navegacion-principal a:last-child:hover{
 }
 @media only screen and (min-width:768px){
     nav.navegacion-principal{
-        width: 67%
+        width: 67%;
         float: right;
         text-align: right;
         display: block!important;;
@@ -764,6 +764,7 @@ div.tabla-precio ul li:before{
 
 div.mapa{
     height: 420px;
+    z-index: 1;
 }
 
 /* Testimoniales */

@@ -16,7 +16,7 @@
                 .bindPopup('Este es un lugar de prueba (Google :v)')
                 .openPopup();
             L.marker([4.65971, -74.055817]).addTo(map)
-                .bindTooltip('Este es un lugar de prueba (Modern Gym)')
+                .bindTooltip('Este es un lugar de prueba (Modern Gym of Colombia)')
                 .openTooltip();
         }
 
