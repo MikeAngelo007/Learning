@@ -95,6 +95,11 @@ textarea {
 
 /* ==========================================================================
    Author's custom styles
+
+   font-family: 'Anton', sans-serif;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Fira Sans Condensed', sans-serif;
+font-family: 'Ropa Sans', sans-serif;
    ========================================================================== */
 
 html{
@@ -110,12 +115,26 @@ body{
 }
 h1{
     text-align: center;
+    color: white;
+    font-size: 4em;
+    
+    font-family: 'Permanent Marker', cursive;
+}
+
+h2{
+    font-family: 'Ropa Sans', sans-serif;
+    font-size: 1.9em;
 }
 
 .proyecto{
     background-color: rgba(185, 178, 178, 0.479);
     margin: 5px 0;
     border-radius: 10px;
+    transition: all .3s ease;
+}
+.proyecto:hover{
+    transform: scale(1.1);
+    background-color: rgba(185, 178, 178, 0.315);
 }
 a{
     text-decoration: none;
@@ -131,6 +150,8 @@ a{
 p{
     text-align: center;
     color: white;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-size: 1.2em;
 }
 /* ==========================================================================
    ==========================================================================

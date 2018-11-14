@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton|Fira+Sans+Condensed|Permanent+Marker|Ropa+Sans" rel="stylesheet">
   </head>
   <body>
 
@@ -23,7 +24,7 @@
               
         </div>
         <a href="https://bit.ly/2QB3hoH">
-          <div class="proyecto">
+          <div class="proyecto gdl">
             <h2>GDLWEBCAMP (Proyecto en desarrollo)</h2>
             <!-- <a href="Desarrollo completo (PHP, JS, AJAX, MySQL, HTML5, CSS3, jQuery)\Big Project\index.html">GDLWEBCAMP (Proyecto en desarrollo)</a> -->
             <div class="descripcion">
@@ -32,7 +33,7 @@
           </div>
         </a>
         <a href="https://bit.ly/2ODUaSq">
-          <div class="proyecto">
+          <div class="proyecto uncalendario">
             <h2>UNCalendario</h2>
             <div class="descripcion">
               <p> Este proyecto desarrollado como aplicacion para uso de la comunidad universitaria de la Universidad Nacional de Colombia, donde se pueden crear eventos y compartirlos con todos us contactos.</p>
@@ -41,7 +42,7 @@
         </a>
 
         <a href="https://bit.ly/2JZf6CI">
-          <div class="proyecto">
+          <div class="proyecto isi">
           <h2>ISI Inmobiliaria</h2>
             <div class="descripcion">
               <p> Esta pagina fue desarrolada como ejemplo de diseño web comercial  y practica de habilidades.</p>
@@ -52,7 +53,7 @@
 
     
 
-
+    
 
 
   </body>
