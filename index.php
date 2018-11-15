@@ -7,14 +7,16 @@
     <title>Mis proyectos</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Anton|Fira+Sans+Condensed|Permanent+Marker|Ropa+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    
   </head>
   <body>
-
+          <div class="headering">
             <?php
               echo '<h1>Mis proyectos</h1>';
             ?>
+          </div>
 
     
 
@@ -75,7 +77,21 @@
     </div>
 
     
+    <footer>
+      <div class="info">
+        <h4>Miguel Tovar</h4>
+        <h4>2018 &copy </h4>
+      </div>
 
+      <div class="social">
+        <a href="https://mikeangelo007.github.io" class="redes"><i class="fas fa-globe"></i></a>
+        <a href="https://www.facebook.com/M1K3VN63L0" class="redes"><i class="fab fa-facebook-f"></i></a>
+                          <a href="https://twitter.com/Mike_Angelo9" class="redes"><i class="fab fa-twitter"></i></a>
+                          <a href="https://www.instagram.com/mikeangelo1107/" class="redes"><i class="fab fa-instagram"></i></a>
+                          <a href="mailto: matovaro@unal.edu.co?Subject=Contacto%20Desarrollo%20Pagina%20web" class="redes"><i class="fas fa-envelope"></i></a>
+                          <a href="https://github.com/MikeAngelo007" class="redes"><i class="fab fa-github"></i></a>
+      </div>                 
+    </footer>
     
 
 
