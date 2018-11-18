@@ -1,0 +1,234 @@
+:root{
+    --oscuro:#212121;
+    --primario: #FFC107;
+    --secundario:#0097a7;
+    --gris:#757575;
+
+    --anchoPantalla:1200px;
+}
+
+html {
+    box-sizing: border-box;
+    min-height: 100%;
+
+    /** Conversion para que 1rem sean 10 pixeles (Parte 1) **/
+    font-size: 62.5%;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body{
+    font-family: 'Krub',sans-serif;
+    min-height: 100%;
+    background-image: linear-gradient(120deg, #fdfbfb 30%, #ebedee 70%);
+    
+    /** Conversion para que 1rem sean 10 pixeles (Parte 1) **/
+    font-size: 1.6rem;
+
+    
+
+}
+
+h1, h2, h3{
+    margin:0;
+}
+h2, h3{
+    text-align: center;
+}
+h3{
+    color: var(--secundario);
+    font-weight: 400;
+    font-size: 3rem;
+}
+
+p{
+    font-size: 1.8rem;
+    line-height: 2;
+}
+.site-header{
+    background-color: white;
+}
+.site-header nav{
+    max-width: var(--anchoPantalla);
+    margin: 0 auto;
+    padding: 2rem 0;
+
+
+    /*El display flex se debe aplicar al padre (en este caso, Nav)*/
+    display: flex;
+    /* justify-content: flex-start; */
+    /*justify-content: space-between;*/
+    flex-direction: column;
+    align-items: center;
+}
+.site-header nav a{
+    color: var(--oscuro);
+    font-size: 2.2rem;
+    text-decoration: none;
+    margin: 1rem 0;
+}
+
+
+.hero{
+    height: 45rem;
+    background-image: url(../img/hero.jpg);
+    position: relative;
+
+
+    /* Flex */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero::after{
+    content: '';
+    background-color: rgba(0, 0, 0, .7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.contenedor-hero{
+    position: relative;
+    z-index: 1;
+    color: white;
+
+    text-align: center;
+}
+
+.contenedor-hero i{
+    font-size: 5rem;
+    color: var(--primario);
+}
+.boton{
+    background-color: var(--secundario);
+    padding: 1rem 5rem;
+    display: inline-block;
+    margin: .5rem 0;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2.2rem;
+    border-radius: .5rem;
+
+    border:none;
+}
+
+.boton:hover{
+    cursor: pointer;
+}
+
+
+.contenedor{
+    max-width: var(--anchoPantalla);
+    margin: 3rem auto;
+    background-color: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    -webkit-box-shadow: 0px 7px 19px -3px rgba(0,0,0,0.87);
+    -moz-box-shadow: 0px 7px 19px -3px rgba(0,0,0,0.87);
+    box-shadow: 0px 7px 19px -3px rgba(0,0,0,0.87);
+}
+
+
+
+.servicio{
+    margin: 2rem auto;
+}
+.iconos{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--primario);
+
+    font-size: 3rem;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    margin: 1rem auto;
+}
+form{
+    background-color: var(--gris);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-top: 3rem;
+}
+
+form legend{
+    text-align: center;
+    font-size: 2rem;
+    color:var(--primario);
+
+    margin: 3rem 0;
+}
+@media only screen and (min-width:768px){
+    .site-header nav{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .site-header nav a{
+        margin: 0;
+    }
+
+    .contenedor-servicios{
+        margin-top: 3rem;
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .servicio{
+        flex: 0 0 calc(33.3% - 1rem);
+    }
+
+    form{
+        max-width: 800px;
+        margin: 3rem auto;
+    }
+
+    .contenedor-campos{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .campo{
+        flex: 0 0 calc(50% - 1rem);
+
+    }
+}
+
+.campo{
+    display: flex;
+    margin-bottom: 2rem;
+}
+.campo label{
+    flex: 0 0 90px;
+    padding-top: .5rem;
+    color: white;
+}
+
+.campo input{
+    flex: 1;
+    height: 4rem;
+}
+.campo textarea{
+    flex: 1;
+    height: 6rem;
+}
+
+.w100{
+    flex: 0 0 100%;
+}
+.enviar{
+    display: flex;
+    justify-content: center;
+}
+

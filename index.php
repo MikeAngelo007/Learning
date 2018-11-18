@@ -74,6 +74,15 @@
             </div>
           </div>
         </a>
+
+        <a href="Desarrollo completo (PHP, JS, AJAX, MySQL, HTML5, CSS3, jQuery)/Proyecto_3/index.html">
+          <div class="proyecto flex">
+          <h2>Pagina Freelancer (Miniproyecto)</h2>
+            <div class="descripcion">
+              <p> Esta pagina fue desarrolada como ejemplo de diseño web con Flexbox y practica de habilidades.</p>
+            </div>
+          </div>
+        </a>
     </div>
 
     
