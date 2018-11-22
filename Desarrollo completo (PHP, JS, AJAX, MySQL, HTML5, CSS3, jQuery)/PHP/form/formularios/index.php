@@ -75,13 +75,12 @@
 
             <div class="tipo_curso">
                   <h2>Tipo de Curso</h2>
-                  <?php  $opciones = array(
+                  <?php  
+                  $opciones = array(
                       'pres' => 'Presencial',
                       'online' => 'En Línea'
-                  );?>
-
-
-                  <?php foreach($opciones as $key => $opcion) {
+                  );
+                   foreach($opciones as $key => $opcion) {
                     echo "<div class='campo'>";
                     echo "<input type='radio' name='opciones' value='$key' > $opcion";
                     echo "</div>";
