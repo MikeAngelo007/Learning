@@ -28,7 +28,7 @@
               
         </div>
         <!-- <a href="https://bit.ly/2QB3hoH"> -->
-        <a href="Desarrollo completo (PHP, JS, AJAX, MySQL, HTML5, CSS3, jQuery)/Big Project/index.html">
+        <a href="Desarrollo completo (PHP, JS, AJAX, MySQL, HTML5, CSS3, jQuery)/Big Project/index.php">
           <div class="proyecto gdl">
             <h2>GDLWEBCAMP (Proyecto en desarrollo)</h2>
             <!-- <a href="Desarrollo completo (PHP, JS, AJAX, MySQL, HTML5, CSS3, jQuery)\Big Project\index.html">GDLWEBCAMP (Proyecto en desarrollo)</a> -->
