@@ -70,7 +70,7 @@
                         <div class="dia">
                             <p class="titulo">
                             
-                            <?php echo $event['titulo']; ?>
+                            <?php echo utf8_encode($event['titulo']); ?>
             
                             </p>
                             <p class="hora">
