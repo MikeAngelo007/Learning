@@ -104,7 +104,7 @@
       </div>
     </section>
 
-  <?php include_once'includes/templates/invitados.php'; ?>
+    <?php include_once'includes/templates/invitados.php'; ?>
     
     <div class="contador parallax">
       <div class="contenedor">
