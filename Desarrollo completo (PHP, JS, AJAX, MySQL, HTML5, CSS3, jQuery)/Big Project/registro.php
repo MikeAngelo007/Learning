@@ -4,22 +4,22 @@
     <section class="seccion contenedor">
         <h2>Registro de usuarios</h2>
 
-        <form id="registro" class="registro" action="index.html" method="POST">
+        <form id="registro" class="registro" action="validar_registro.php" method="POST">
             <div id="datos_usuario" class="registro caja clearfix">
                 <div class="campo">
                     <label for="nombre"> Nombre: </label>
-                    <input type="text" id="nombre" class="nombre" placeholder="Tu nombre">
+                    <input type="text" id="nombre" name="nombre" class="nombre" placeholder="Tu nombre">
                 </div>
 
                 <div class="campo">
                         <label for="apellido"> Apellido: </label>
-                        <input type="text" id="apellido" class="apellido" placeholder="Tu apellido">
+                        <input type="text" id="apellido" name="apellido" class="apellido" placeholder="Tu apellido">
                     </div>
                 
 
                 <div class="campo">
                             <label for="email"> Email: </label>
-                            <input type="email" id="email" class="email" placeholder="Tu email">
+                            <input type="email" id="email" name="email" class="email" placeholder="Tu email">
                 </div>
 
                 <div id="error">
@@ -45,7 +45,7 @@
                             </ul>
                             <div class="orden">
                                 <label for="pase_dia">Boletos deseados: </label>
-                                <input type="number" min="0" id="pase_dia" placeholder="0" size="3">
+                                <input type="number" min="0" id="pase_dia" name="boletos[]" placeholder="0" size="3">
                             </div>
                           </div>
                         </li>
@@ -61,7 +61,7 @@
                             </ul>
                             <div class="orden">
                                     <label for="pase_completo">Boletos deseados: </label>
-                                    <input type="number" min="0" id="pase_completo" placeholder="0" size="3">
+                                    <input type="number" min="0" id="pase_completo" placeholder="0" size="3" name="boletos[]">
                                 </div>
                           </div>
                         </li>
@@ -77,7 +77,7 @@
                             </ul>
                             <div class="orden">
                                     <label for="pase_dosdias">Boletos deseados: </label>
-                                    <input type="number" min="0" id="pase_dosdias" placeholder="0" size="3">
+                                    <input type="number" min="0" id="pase_dosdias" placeholder="0" size="3" name="boletos[]">
                                 </div>
                           </div>
                         </li>
@@ -165,21 +165,21 @@
                     <div class="extras">
                         <div class="orden">
                             <label for="camisa_evento"> Camisa del evento: $10000 <small>(Promocion 7% de descuento)</small></label>
-                            <input type="number" min="0" placeholder="0" size="3" id="camisa_evento">
+                            <input type="number" min="0" placeholder="0" size="3" id="camisa_evento" name="pedido_camisas">
                         </div>
 
                         <div class="orden">
                                 <label for="etiquetas"> Paquete de 10 etiquetas $2.000 <small>(HTML5, CSS, JavaScript, Chrome)</small></label>
-                                <input type="number" min="0" placeholder="0" size="3" id="etiquetas">
+                                <input type="number" min="0" placeholder="0" size="3" id="etiquetas" name="pedido_etiquetas">
                             </div>
                         
                             <div class="orden">
                                     <label for="regalo"> Seleccione un regalo: </label>
-                                    <select id="regalo" required>
+                                    <select id="regalo" name="regalo" required>
                                         <option value=""> -- Seleccione un regalo -- </option>
-                                        <option value="ETI"> Etiquetas </option>
-                                        <option value="PUL"> Pulsera </option>
-                                        <option value="PLU"> Pluma </option>
+                                        <option value="2"> Etiquetas </option>
+                                        <option value="1"> Pulsera </option>
+                                        <option value="3"> Pluma </option>
                                     </select>
                                 </div>
 
@@ -199,7 +199,8 @@
 
                             <div id="suma-total"></div>
 
-                            <input id="btnRegistro" type="submit" class="button" value="Pagar">
+                            <input type="hidden" name="total_pedido" id="total_pedido">
+                            <input id="btnRegistro" type="submit" name="submit" class="button" value="Pagar">
                         </div>
                 </div>
             </div>
