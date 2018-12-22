@@ -1,4 +1,5 @@
 <?php include_once'includes/templates/header.php'; ?>
+<!-- Mostrar los adquiridos por los usuarios en validar_registro -->
 
 
     <section class="seccion contenedor">
