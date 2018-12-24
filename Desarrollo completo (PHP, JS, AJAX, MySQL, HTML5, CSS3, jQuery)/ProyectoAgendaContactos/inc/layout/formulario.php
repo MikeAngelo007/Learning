@@ -18,6 +18,8 @@
         </div>
         
         <div class="campo enviar">
+                <input type="hidden" value="crear" id="accion">
+                <input type="hidden" value="77" id="id">
                 <input type="submit" value="Añadir">
             
             </div>
