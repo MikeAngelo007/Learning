@@ -1,3 +1,4 @@
+<?php include 'inc/funciones/funciones.php';?>
 <?php include 'inc/layout/header.php';?>
 
 <div class="contenedor-barra">
@@ -19,7 +20,9 @@
         <h2>Contactos</h2>
         <input type="text" placeholder="Buscar contactos..." id="buscar" class="buscador sombra">
 
-        <p class="total-contactos"><span>2</span> Contactos</p>
+        <?php $contactos = obtenerContactos(); ?>
+
+        <p class="total-contactos"><span><?php echo $contactos->num_rows; ?></span> Contactos</p>
         <div class="contenedor-tabla">
             <table id="listado-contactos" class="listado-contactos">
                 <thead>
@@ -31,49 +34,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Mike</td>
-                        <td>Pinochito ltda.</td>
-                        <td>07654345</td>
-                        <td>
-                            <a href="editar.php?id=1" class="btn-editar btn">
-                                <i class="far fa-edit"></i>
-                            </a>
+                    
+                    
+                    <?php    if($contactos->num_rows) {
+                            //var_dump(count($contactos)); 
+                            foreach($contactos as $contacto){
+                    ?>
+                        <tr>
+                            <td><?php echo $contacto['nombre']; ?></td>
+                            <td><?php echo $contacto['empresa']; ?></td>
+                            <td><?php echo $contacto['telefono']; ?></td>
+                            <td>
+                                <a href="editar.php?id=<?php echo $contacto['id']; ?>" class="btn-editar btn">
+                                    <i class="far fa-edit"></i>
+                                </a>
 
-                            
-                            <button type="button" class="btn-borrar btn" data-id="1">
-                                <i class="far fa-trash-alt"></i>
-                            </button>
-                        </td>
-                    </tr>
+                                
+                                <button type="button" class="btn-borrar btn" data-id="<?php echo $contacto['id']; ?>">
+                                    <i class="far fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td>Mike</td>
-                        <td>Pinochito ltda.</td>
-                        <td>07654345</td>
-                        <td>
-                            <a href="editar.php?id=1" class="btn-editar btn">
-                                <i class="far fa-edit"></i>
-                            </a>
-                            <button type="button" class="btn-borrar btn" data-id="1">
-                                <i class="far fa-trash-alt"></i>
-                            </button>
-                        </td>
-                    </tr>
+                    <?php   } 
+                        } ?>
 
-                    <tr>
-                        <td>Mike</td>
-                        <td>Pinochito ltda.</td>
-                        <td>07654345</td>
-                        <td>
-                            <a href="editar.php?id=1" class="btn-editar btn">
-                                <i class="far fa-edit"></i>
-                            </a>
-                            <button type="button" class="btn-borrar btn" data-id="1">
-                                <i class="far fa-trash-alt"></i>
-                            </button>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
