@@ -92,6 +92,15 @@
             </div>
           </div>
         </a>
+
+        <a href="Desarrollo completo (PHP, JS, AJAX, MySQL, HTML5, CSS3, jQuery)/ProyectoAgendaContactos/index.php">
+          <div class="proyecto agenda">
+          <h2>Agenda de contactos</h2>
+            <div class="descripcion">
+              <p> Proyecto con PHP, AJAX y SQL, con la funcionalidad CRUD de contactos y autoactualizable.</p>
+            </div>
+          </div>
+        </a>
     </div>
 
     
