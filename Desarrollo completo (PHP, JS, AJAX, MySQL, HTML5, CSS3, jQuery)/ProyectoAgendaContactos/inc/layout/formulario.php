@@ -18,9 +18,19 @@
         </div>
         
         <div class="campo enviar">
-                <?php ?>
-                <input type="hidden" value="crear" id="accion">
-                <input type="hidden" value="77" id="id">
-                <input type="submit" value="Añadir">
+                <?php 
+                    if(isset($contacto['nombre'])){
+                        $textoBtn='Guardar';
+                        $act='editar';
+                    }else{
+                        $textoBtn='Añadir';
+                        $act='crear';
+                    }
+                ?>
+                <input type="hidden" value="<?php echo $act; ?>" id="accion">
+                <?php if(isset($contacto['id'])){?>
+                    <input type="hidden" value="<?php echo $contacto['id'] ?>" id="id">
+                <?php } ?>
+                <input type="submit" value="<?php echo $textoBtn; ?>">
             
             </div>

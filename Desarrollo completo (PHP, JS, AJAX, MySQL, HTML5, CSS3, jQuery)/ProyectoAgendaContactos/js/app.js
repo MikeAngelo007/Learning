@@ -1,5 +1,6 @@
 const formularoContactos=document.querySelector('#contacto'),
-        listadoContactos=document.querySelector('#listado-contactos tbody');
+        listadoContactos=document.querySelector('#listado-contactos tbody'),
+        inputBuscador=document.querySelector('#buscar');
 
 eventListeners();
 
@@ -8,7 +9,15 @@ function eventListeners(){
     formularoContactos.addEventListener('submit',leerFormulario);
 
     //Listener para boton eliminar
-    listadoContactos.addEventListener('click', eliminarContacto);
+    if(listadoContactos){
+        listadoContactos.addEventListener('click', eliminarContacto);
+    }
+
+    if(inputBuscador){
+        inputBuscador.addEventListener('input',buscarContactos);
+    }
+
+    numeroContactos();
 }
 
 function leerFormulario(e){
@@ -37,6 +46,9 @@ function leerFormulario(e){
             insertarBD(infoContacto);
         }else{
             //editar contacto
+            const idRegistro=document.querySelector('#id').value;
+            infoContacto.append('id',idRegistro);
+            actualizarRegistro(infoContacto);
         }
     }
 }
@@ -100,12 +112,43 @@ function insertarBD(datos){
             //Mostrar notificacion
             mostrarNotificacion('Contacto creado correctamente','correcto');
 
+            //Mostrar total contactos
+            numeroContactos();
+
         }
     }
 
     //Enviar los datos
     xhr.send(datos);
 
+}
+//Actualizar registro
+
+function actualizarRegistro(datos){
+    const xhr= new XMLHttpRequest();
+    xhr.open('POST','inc/modelos/modelo-contactos.php',true);
+
+    xhr.onload=function(){
+        if(this.status === 200){
+            const respuesta=JSON.parse(xhr.responseText);
+            //console.log(respuesta);
+
+            if(respuesta.respuesta === 'correcto'){
+                //Mostrar notificacion correcto
+                mostrarNotificacion('Contacto editado con exito.','correcto');
+            }else{
+                //Mostrar notificacion error
+                mostrarNotificacion('Ha ocurrido un error o no has modificado ningun campo.','error');
+            }
+            //Redireccionar
+
+            setTimeout(() => {
+                window.location.href='index.php';
+            }, 3500);
+        }
+    }
+
+    xhr.send(datos);
 }
 
 //Eliminar contacto
@@ -131,6 +174,8 @@ function eliminarContacto(e){
 
 
                         mostrarNotificacion('Contacto eliminado','correcto');
+                        //Mostrar total contactos
+                        numeroContactos();
                     }else{
                         mostrarNotificacion('Hubo un error...','error');
                     }
@@ -163,4 +208,49 @@ function mostrarNotificacion(mensaje,clase){
         }, 3000);
 
     }, 100);
+}
+
+function buscarContactos(e){
+    //console.log(e.target.value);
+    const expresion = new RegExp(e.target.value,"i"),
+            registros=document.querySelectorAll('tbody tr');
+
+    registros.forEach(registro =>{
+        registro.style.display='none';
+            //el replace esta sustituyendo el espacio por un " ", esto evita que toma los espacios como parte de la palabra o no estuvieran.
+            // el childnodes esta tomando solo los nombres.
+
+            //De este modo, busca en todos los campos
+            for(i=0;i<3;i++){
+                if(registro.childNodes[(i*2)+1].textContent.replace(/\s/g, " ").search(expresion) != -1){
+                registro.style.display='table-row';
+
+            }
+
+
+            //De este modo, buscaria solo en una columna (1:nombre, 3:empresa,5:telefono)
+
+            /* if(registro.childNodes[3].textContent.replace(/\s/g, " ").search(expresion) != -1){
+            registro.style.display='table-row'; */
+
+            numeroContactos();
+        }
+    })
+}
+
+function numeroContactos(){
+    const totalContactos=document.querySelectorAll('tbody tr'),
+            contenedorNumero=document.querySelector('.total-contactos span');
+    console.log(totalContactos.length);
+
+    let total=0;
+
+    totalContactos.forEach(contacto =>{
+        if(contacto.style.display === '' || contacto.style.display === 'table-row'){
+            total++;
+        }
+    });
+
+    console.log(total);
+    contenedorNumero.textContent=total;
 }

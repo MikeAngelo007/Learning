@@ -39,6 +39,47 @@
             echo json_encode($respuesta);
         }
     }
+
+    if(isset($_POST['accion'])){
+        if($_POST['accion'] == 'editar'){
+          // echo json_encode($_POST);
+          //Creara un nuevo registro
+          require_once('../funciones/bd.php');
+
+          //Validar entradas
+
+          $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
+          $empresa = filter_var($_POST['empresa'], FILTER_SANITIZE_STRING);
+          $telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
+          $id = filter_var($_POST['id'],FILTER_SANITIZE_NUMBER_INT);
+
+          try{
+
+            $stmt = $conn->prepare("UPDATE contactos SET nombre = ? , empresa = ?, telefono = ? WHERE id = ?");
+            $stmt->bind_param("sssi", $nombre, $empresa, $telefono, $id);
+            $stmt->execute();
+
+            if($stmt->affected_rows == 1){
+                $respuesta=array(
+                    'respuesta' => 'correcto'
+                );
+            }else{
+                $respuesta=array(
+                    'respuesta' => 'error'
+                );
+            }
+
+            $stmt->close();
+            $conn->close();
+
+          } catch( Exception $e) {
+                $respuesta=array(
+                    'error' => $e->getMessage()
+                );
+            }
+            echo json_encode($respuesta);
+        }
+    }
     if(isset($_GET['accion'])){
         if($_GET['accion'] == 'borrar'){
             require_once('../funciones/bd.php');
@@ -67,3 +108,4 @@
             echo json_encode($respuesta);
         }
     }
+?>

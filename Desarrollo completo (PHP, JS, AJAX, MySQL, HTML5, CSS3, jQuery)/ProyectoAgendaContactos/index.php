@@ -20,9 +20,9 @@
         <h2>Contactos</h2>
         <input type="text" placeholder="Buscar contactos..." id="buscar" class="buscador sombra">
 
-        <?php $contactos = obtenerContactos(); ?>
+        
 
-        <p class="total-contactos"><span><?php echo $contactos->num_rows; ?></span> Contactos</p>
+        <p class="total-contactos"><span></span> Contactos</p>
         <div class="contenedor-tabla">
             <table id="listado-contactos" class="listado-contactos">
                 <thead>
@@ -35,7 +35,7 @@
                 </thead>
                 <tbody>
                     
-                    
+                <?php $contactos = obtenerContactos(); ?>
                     <?php    if($contactos->num_rows) {
                             //var_dump(count($contactos)); 
                             foreach($contactos as $contacto){
