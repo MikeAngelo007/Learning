@@ -35,7 +35,7 @@
 
         var calcular = document.getElementById('calcular');
         var errorDiv = document.getElementById('error');
-        var botonRegistro = document.getElementById('btnRegistro');
+        var botonevento = document.getElementById('btnevento');
         var lista_productos = document.getElementById('lista-productos');
         var suma = document.getElementById('suma-total');
 
@@ -43,7 +43,7 @@
         var etiquetas = document.getElementById('etiquetas');
         var camisas = document.getElementById('camisa_evento');
 
-        botonRegistro.disabled = true;
+        botonevento.disabled = true;
 
         if(document.getElementById('calcular')){
 
@@ -135,7 +135,7 @@
 
                     suma.innerHTML = '$'+totalPagar.toFixed(2);
 
-                    botonRegistro.disabled = false;
+                    botonevento.disabled = false;
 
                     document.getElementById('total_pedido').value = totalPagar;
                 }
@@ -256,4 +256,41 @@ $(function(){
 
     $('.invitado-info').colorbox({inline:true,width:"50%"});
     $('.boton_newsletter').colorbox({inline:true,width:"50%"});
+
+    
+    
 });
+
+const inputBuscador=document.querySelector('#buscar');
+
+    if(inputBuscador){
+        inputBuscador.addEventListener('input',buscarEventos);
+    }
+
+    
+
+    function buscarEventos(e){
+        //console.log(e.target.value);
+        const expresion = new RegExp(e.target.value,"i"),
+                eventos=document.querySelectorAll('div.dia');
+    
+        eventos.forEach(evento =>{
+            evento.style.display='none';
+                //el replace esta sustituyendo el espacio por un " ", esto evita que toma los espacios como parte de la palabra o no estuvieran.
+                // el childnodes esta tomando solo los nombres.
+    
+                //De este modo, busca en todos los campos
+                for(i=0;i<4;i++){
+                    if(evento.childNodes[(i*2)+1].textContent.replace(/\s/g, " ").search(expresion) != -1){
+                    evento.style.display='unset';
+    
+                }
+    
+    
+                //De este modo, buscaria solo en una columna (1:nombre, 3:empresa,5:telefono)
+    
+                /* if(evento.childNodes[3].textContent.replace(/\s/g, " ").search(expresion) != -1){
+                evento.style.display='table-row'; */
+            }
+        })
+    }

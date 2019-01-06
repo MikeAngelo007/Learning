@@ -13,6 +13,8 @@
     <section class="seccion contenedor">
       <h2>Calendario de eventos</h2>
 
+      <input type="text" placeholder="Buscar eventos..." id="buscar" class="buscador sombra">
+
         <?php
             try{
                 require_once('includes/funciones/bd_conexion.php');
