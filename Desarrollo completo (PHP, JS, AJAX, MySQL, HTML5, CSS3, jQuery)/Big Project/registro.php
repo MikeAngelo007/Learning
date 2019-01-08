@@ -23,6 +23,16 @@
                             <input type="email" id="email" name="email" class="email" placeholder="Tu email">
                 </div>
 
+                <div class="campo">
+                    <label for="genero"> Genero: </label>
+                    <select id="genero" name="genero" required>
+                        <option value=""> -- Seleccione un genero -- </option>
+                        <option value="1"> Masculino </option>
+                        <option value="2"> Femenino </option>
+                        <option value="3"> Otro </option>
+                    </select>
+                </div>
+
                 <div id="error">
 
                 </div>

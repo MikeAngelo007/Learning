@@ -1066,7 +1066,9 @@ div.campo{
 @media only screen and (min-width:768px){
     div.campo{
         float: left;
-        width: 33.3%;
+        /* width: 33.3%; */
+        width: 50%;
+        text-align: center;
     }
 }
 

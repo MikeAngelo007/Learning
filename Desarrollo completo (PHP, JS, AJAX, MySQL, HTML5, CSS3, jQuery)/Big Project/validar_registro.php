@@ -3,6 +3,8 @@
         $nombre=$_POST['nombre'];
         $apellido=$_POST['apellido'];
         $email=$_POST['email'];
+        $genero=3;
+        $genero=$_POST['genero'];
         $regalo=$_POST['regalo'];
 
         $total=$_POST['total_pedido'];
@@ -25,8 +27,8 @@
 
         try{
             require_once('includes/funciones/bd_conexion.php');
-            $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado) VALUES (?,?,?,?,?,?,?,?)");
-            $stmt->bind_param("ssssssis", $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total);
+            $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, genero_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado) VALUES (?,?,?,?,?,?,?,?,?)");
+            $stmt->bind_param("ssissssis", $nombre, $apellido,$genero, $email, $fecha, $pedido, $registro, $regalo, $total);
             $stmt->execute();
             $stmt->close();
             $conn->close();

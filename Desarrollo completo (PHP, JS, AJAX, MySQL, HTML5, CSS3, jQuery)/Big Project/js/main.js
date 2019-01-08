@@ -42,9 +42,9 @@
         //Extras
         var etiquetas = document.getElementById('etiquetas');
         var camisas = document.getElementById('camisa_evento');
-
-        botonevento.disabled = true;
-
+        if(botonevento){
+            botonevento.disabled = true;
+        }
         if(document.getElementById('calcular')){
 
             calcular.addEventListener('click', calcularMontos);
@@ -82,7 +82,7 @@
 
             function calcularMontos(event){
                 event.preventDefault();
-                if(regalo.value === ''){ //Revisa que el usuario haya elegido regalo
+                if(regalo.value == ''){ //Revisa que el usuario haya elegido regalo
                     alert('Debes escoger un regalo');
                     regalo.focus();
                 }else{
@@ -134,10 +134,13 @@
                     }
 
                     suma.innerHTML = '$'+totalPagar.toFixed(2);
-
-                    botonevento.disabled = false;
-
+                    if(botonevento){
+                        botonevento.disabled = false;
+                    }
+                    console.log(totalPagar);
                     document.getElementById('total_pedido').value = totalPagar;
+                    console.log(totalPagar);
+                    console.log('Bien por aqui');
                 }
             };
 
