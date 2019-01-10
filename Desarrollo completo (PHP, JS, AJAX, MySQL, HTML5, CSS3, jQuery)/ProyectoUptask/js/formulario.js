@@ -26,7 +26,7 @@ function validarRegistro(e){
         datos.append('password',password);
         datos.append('accion',tipo);
 
-        console.log(...datos);
+        //console.log(...datos);
         //Llamado a AJAX
 
         var xhr = new XMLHttpRequest();
@@ -35,7 +35,21 @@ function validarRegistro(e){
 
         xhr.onload = function(){
             if(this.status === 200){
-                console.log(JSON.parse(xhr.responseText));
+                const respuesta = JSON.parse(xhr.responseText);
+
+                if(respuesta.respuesta === 'correcto'){
+                    if(respuesta.tipo === 'crear'){
+                        Swal({
+                            type: 'success',
+                            title: '¡Creado!',
+                            text: 'Usuario creado satisfactoriamente.'
+                          })
+                    }
+                }else if(respuesta.respuesta === 'incorrecto'){
+                    if(respuesta.tipo === crear){
+                        
+                    }
+                }
             }
         }
 
