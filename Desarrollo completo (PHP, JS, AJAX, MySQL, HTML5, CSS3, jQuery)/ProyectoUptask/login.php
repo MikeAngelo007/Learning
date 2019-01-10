@@ -1,6 +1,11 @@
 <?php 
 include 'inc/funciones/funciones.php';
 include 'inc/templates/header.php'; 
+session_start();
+
+if(isset($_GET['cerrar_sesion'])){
+    $_SESSION=array();
+}
 ?>
     <div class="contenedor-formulario">
         <h1>UpTask</h1>
@@ -19,7 +24,7 @@ include 'inc/templates/header.php';
             </div>
 
             <div class="campo">
-                <a href="crear-cuenta.html">Crea una cuenta nueva</a>
+                <a href="crear-cuenta.php">Crea una cuenta nueva</a>
             </div>
         </form>
     </div>
