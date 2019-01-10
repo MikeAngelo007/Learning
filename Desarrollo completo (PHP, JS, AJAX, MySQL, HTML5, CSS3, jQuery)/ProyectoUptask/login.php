@@ -5,6 +5,8 @@ session_start();
 
 if(isset($_GET['cerrar_sesion'])){
     $_SESSION=array();
+    header('Location:login.php');
+    exit();
 }
 
 if(isset($_SESSION['nombre'])){
