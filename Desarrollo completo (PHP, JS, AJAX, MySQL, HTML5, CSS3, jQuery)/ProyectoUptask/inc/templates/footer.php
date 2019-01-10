@@ -5,6 +5,8 @@
 
     if($actual === 'crear-cuenta' || $actual === 'login'){
         echo '<script src="js/formulario.js"></script>';
+    }else if($actual === 'index'){
+        echo '<script src="js/scripts.js"></script>';
     }
 
 ?>
