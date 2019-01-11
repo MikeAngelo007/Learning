@@ -43,7 +43,7 @@ if($accion === 'crear'){
 
     }catch (Exception $e){
         $respuesta = array(
-            'pass' => $e->getMessage()
+            'error' => $e->getMessage()
         );
     }
 
@@ -99,7 +99,7 @@ if($accion === 'login'){
 
     }catch (Exception $e){
         $respuesta = array(
-            'pass' => $e->getMessage()
+            'error' => $e->getMessage()
         );
     }
 

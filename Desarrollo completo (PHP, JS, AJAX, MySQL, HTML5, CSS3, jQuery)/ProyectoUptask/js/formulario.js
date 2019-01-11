@@ -45,7 +45,6 @@ function validarRegistro(e){
                             text: 'Usuario creado satisfactoriamente.'
                           })
                           .then(resultado =>{
-                              console.log(resultado);
                             if(resultado.value){
                                 document.querySelector('#formulario').reset();
                             }  
