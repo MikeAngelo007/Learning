@@ -71,7 +71,7 @@ if(isset($_GET['id_proyecto'])){
                             <?php   }
 
                             }else{
-                                echo '<p>No hay tareas en este proyecto.</p>';
+                                echo '<p class="lista-vacia">No hay tareas en este proyecto.</p>';
                             }
                         }else{
                             echo '<p>Elige un proyecto.</p>';

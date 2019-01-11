@@ -5,6 +5,9 @@ function eventListeners(){
     if(document.querySelector('.nueva-tarea')){
         document.querySelector('.nueva-tarea').addEventListener('click',agregarTarea);
     }
+    if(document.querySelector('.listado-pendientes')){
+        document.querySelector('.listado-pendientes').addEventListener('click',accionesTareas);
+    }
 }
 
 function nuevoProyecto(e){
@@ -126,6 +129,13 @@ function agregarTarea(e){
 
                             document.querySelector('.agregar-tarea').reset();
 
+                            
+                            const listaVacia=document.querySelectorAll('.lista-vacia');
+                            if(listaVacia.length > 0){
+                                document.querySelector('.lista-vacia').remove();
+                            }
+                           
+
                             const nuevaTarea = document.createElement('li');
                             nuevaTarea.id='tarea:'+id_insertado;
                             nuevaTarea.classList.add('tarea');
@@ -158,4 +168,93 @@ function agregarTarea(e){
             text: 'De tarea en tarea se va llegando al objetivo.'
           }) */
     }
+}
+
+function accionesTareas(e){
+    e.preventDefault();
+    if(e.target.classList.contains('fa-check-circle')){
+        if(e.target.classList.contains('completo')){
+            cambiarEstadoTarea(e.target,0);
+            e.target.classList.remove('completo');
+            
+        }else{
+            cambiarEstadoTarea(e.target,1);
+            e.target.classList.add('completo');
+            
+        }
+    }
+    if(e.target.classList.contains('fa-trash')){
+        console.log('click en eliminar');
+        Swal({
+            title: 'Seguro segurito?',
+            text: "Una vez eliminada, no hay reversa!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Seh, hagamoslo!',
+            cancelButtonText: 'Nel, perame reviso'
+          }).then((result) => {
+            if (result.value) {
+                const eliminarTarea = e.target.parentElement.parentElement;
+                eliminarTareaBD(eliminarTarea);
+                eliminarTarea.remove();
+              
+            }
+          })
+    }
+    
+}
+
+function cambiarEstadoTarea(tarea,estado){
+    const idTarea = tarea.parentElement.parentElement.id.split(':'); 
+
+    const datos = new FormData();
+    datos.append('id_tarea',idTarea[1]);
+    datos.append('accion', 'actualizar');
+    datos.append('estado',estado);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST','inc/modelos/modelo-tareas.php',true);
+    xhr.onload = function(){
+        if(this.status === 200){
+            console.log(JSON.parse(xhr.responseText));
+        }
+    }
+    xhr.send(datos);
+
+}
+function eliminarTareaBD(tarea){
+    const idTarea = tarea.id.split(':'); 
+
+    const datos = new FormData();
+    datos.append('id_tarea',idTarea[1]);
+    datos.append('accion', 'eliminar');
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST','inc/modelos/modelo-tareas.php',true);
+    xhr.onload = function(){
+        if(this.status === 200){
+            const respuesta = JSON.parse(xhr.responseText);
+            if(respuesta.respuesta === 'correcto'){
+                Swal(
+                    'Bien, eliminada!',
+                    'Felicitaciones por completar una tarea mas :3 .',
+                    'success'
+                  )
+
+                const tareasRestantes = document.querySelectorAll('li.tarea');
+                if(tareasRestantes.length < 1){
+                    document.querySelector('.listado-pendientes ul').innerHTML= '<p class="lista-vacia">No hay tareas en este proyecto.</p>';
+                }
+            }else{
+                Swal({
+                    title: 'WhaaaaaT?',
+                    text: "Algo fallo... Try again",
+                    type: 'error'
+                  })
+            }
+        }
+    }
+    xhr.send(datos);
 }

@@ -1,7 +1,18 @@
 <?php
 $accion = $_POST['accion'];
-$id_proyecto = (int) $_POST['id_proyecto'];
-$tarea = $_POST['tarea'];
+if(isset($_POST['id_proyecto'])){
+    $id_proyecto = (int) $_POST['id_proyecto'];
+}
+if(isset($_POST['tarea'])){
+    $tarea = $_POST['tarea'];
+}
+if(isset($_POST['id_tarea'])){
+    $id_tarea=$_POST['id_tarea'];
+}
+if(isset($_POST['estado'])){
+    $estado=$_POST['estado'];
+}
+
 if($accion === 'crear'){
     //Codigo para crear
 
@@ -43,4 +54,73 @@ if($accion === 'crear'){
     
 
     
+}
+
+if($accion === 'actualizar'){
+    include '../funciones/conexion.php';
+
+    try{
+        $stmt=$conn->prepare('UPDATE tareas set estado = ? WHERE id = ?');
+        $stmt->bind_param('ii',$estado, $id_tarea);
+        $stmt->execute();
+
+        if($stmt->affected_rows > 0){
+            $respuesta=array(
+                'respuesta' => 'correcto',
+                'estado' => $estado,
+                'tipo' => $accion
+            );
+        }else{
+            $respuesta=array(
+                'respuesta' => 'incorrecto',
+                'error' => $stmt->error_list,
+                'tipo' => $accion,
+                'tarea' => $tarea
+            );
+        }
+
+        $stmt->close();
+        $conn->close();
+
+    }catch (Exception $e){
+        $respuesta = array(
+            'error' => $e->getMessage()
+        );
+    }
+
+    echo json_encode($respuesta);
+}
+
+if($accion === 'eliminar'){
+    include '../funciones/conexion.php';
+
+    try{
+        $stmt=$conn->prepare('DELETE FROM tareas WHERE id = ?');
+        $stmt->bind_param('i', $id_tarea);
+        $stmt->execute();
+
+        if($stmt->affected_rows > 0){
+            $respuesta=array(
+                'respuesta' => 'correcto',
+                'tipo' => $accion
+            );
+        }else{
+            $respuesta=array(
+                'respuesta' => 'incorrecto',
+                'error' => $stmt->error_list,
+                'tipo' => $accion,
+                'tarea' => $tarea
+            );
+        }
+
+        $stmt->close();
+        $conn->close();
+
+    }catch (Exception $e){
+        $respuesta = array(
+            'error' => $e->getMessage()
+        );
+    }
+
+    echo json_encode($respuesta);
 }
