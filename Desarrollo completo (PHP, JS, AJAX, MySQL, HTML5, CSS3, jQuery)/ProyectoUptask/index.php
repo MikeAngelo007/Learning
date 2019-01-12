@@ -21,15 +21,21 @@ if(isset($_GET['id_proyecto'])){
         $proyecto = obtenerNombreProyecto($id_proyecto);
     }
     if(gettype($proyecto) === 'object'){?>
+        <div class="titul">
+            <h1 class="title">
+                <?php  
+                    foreach($proyecto as $nombre){ ?>
+                        <span><?php echo $nombre['nombre']; ?></span>
+                        
 
-        <h1>
-            <?php  
-                foreach($proyecto as $nombre){ ?>
-                    <span><?php echo $nombre['nombre']; ?></span>
-
-             <?php   } ?>
-            
-        </h1>
+                <?php   } ?>
+                
+            </h1>
+        </div>
+        <div class="acciones-proyecto">
+            <i class="fas fa-edit" id="edit-proyect"></i>
+            <i class="fas fa-trash" id="elim-proyect"></i>
+        </div>
 
         <form action="#" class="agregar-tarea">
             <div class="campo">
@@ -61,9 +67,10 @@ if(isset($_GET['id_proyecto'])){
                             if($tareas->num_rows > 0){
                                 foreach($tareas as $tarea){ ?>
                                     <li id="tarea:<?php echo $tarea['id'] ?>" class="tarea">
-                                        <p><?php echo $tarea['nombre']; ?></p>
+                                        <p class="<?php if ((int)$tarea['estado'] === 1){ echo 'completo';}; ?>"><?php echo $tarea['nombre']; ?></p>
                                         <div class="acciones">
                                             <i class="far fa-check-circle <?php if ((int)$tarea['estado'] === 1){ echo 'completo';}; ?>"></i>
+                                            <i class="fas fa-edit"></i>
                                             <i class="fas fa-trash"></i>
                                         </div>
                                     </li> 

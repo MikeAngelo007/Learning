@@ -12,6 +12,9 @@ if(isset($_POST['id_tarea'])){
 if(isset($_POST['estado'])){
     $estado=$_POST['estado'];
 }
+if(isset($_POST['texto'])){
+    $texto=$_POST['texto'];
+}
 
 if($accion === 'crear'){
     //Codigo para crear
@@ -110,6 +113,43 @@ if($accion === 'eliminar'){
                 'error' => $stmt->error_list,
                 'tipo' => $accion,
                 'tarea' => $tarea
+            );
+        }
+
+        $stmt->close();
+        $conn->close();
+
+    }catch (Exception $e){
+        $respuesta = array(
+            'error' => $e->getMessage()
+        );
+    }
+
+    echo json_encode($respuesta);
+}
+if($accion === 'actualizar-total'){
+    include '../funciones/conexion.php';
+
+    try{
+        $stmt=$conn->prepare('UPDATE tareas set nombre = ? WHERE id = ?');
+        $stmt->bind_param('si',$texto, $id_tarea);
+        $stmt->execute();
+
+        if($stmt->affected_rows > 0){
+            $respuesta=array(
+                'respuesta' => 'correcto',
+                'texto' => $texto,
+                'estado' => $estado,
+                'id_tarea' => $id_tarea,
+                'tipo' => $accion
+            );
+        }else{
+            $respuesta=array(
+                'respuesta' => 'incorrecto',
+                'error' => $stmt->error_list,
+                'tipo' => $accion,
+                'tarea' => $texto,
+                'id' => $id_tarea
             );
         }
 

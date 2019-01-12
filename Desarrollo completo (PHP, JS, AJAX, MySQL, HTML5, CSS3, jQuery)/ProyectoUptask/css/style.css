@@ -212,8 +212,12 @@ body.index {
 .listado-pendientes ul li i {
     cursor: pointer;
 }
-.acciones i:last-child{
-    margin-left: 3rem;
+.acciones{
+    flex: 0 0 calc(25% - 1rem);
+    text-align: end;
+}
+.acciones i:first-child{
+    margin-right: 2rem;
 }
 .completo {
     color: #00B762;
@@ -224,4 +228,28 @@ body.index {
     text-align: center;
     color: white;
     font-size: 1.2rem;
+}
+
+#editar-tarea{
+    flex: 1;
+}
+.acciones-proyecto{
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+.acciones-proyecto i{
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+h1.title{
+    margin-bottom: 0;
+}
+.titul{
+    text-align: center;
+}
+#editar-proyecto{
+    width: 80%;
+    padding: 5px;
+    margin: 0 auto .5rem auto;
 }

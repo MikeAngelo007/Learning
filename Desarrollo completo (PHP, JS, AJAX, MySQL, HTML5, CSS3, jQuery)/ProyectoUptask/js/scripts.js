@@ -8,6 +8,12 @@ function eventListeners(){
     if(document.querySelector('.listado-pendientes')){
         document.querySelector('.listado-pendientes').addEventListener('click',accionesTareas);
     }
+    if(document.querySelector('#edit-proyect')){
+        document.querySelector('#edit-proyect').addEventListener('click',editProyecto);
+    }
+    if(document.querySelector('#elim-proyect')){
+        document.querySelector('#elim-proyect').addEventListener('click',elimProyecto);
+    }
 }
 
 function nuevoProyecto(e){
@@ -143,6 +149,7 @@ function agregarTarea(e){
                                 <p>${tarea}</p>
                                 <div class='acciones'>
                                     <i class="far fa-check-circle"></i>
+                                    <i class="fas fa-edit"></i>
                                     <i class="fas fa-trash"></i>
                                 </div>
                             `;
@@ -176,15 +183,16 @@ function accionesTareas(e){
         if(e.target.classList.contains('completo')){
             cambiarEstadoTarea(e.target,0);
             e.target.classList.remove('completo');
+            e.target.parentElement.parentElement.querySelector('p').classList.remove('completo');
             
         }else{
             cambiarEstadoTarea(e.target,1);
             e.target.classList.add('completo');
+            e.target.parentElement.parentElement.querySelector('p').classList.add('completo');
             
         }
     }
     if(e.target.classList.contains('fa-trash')){
-        console.log('click en eliminar');
         Swal({
             title: 'Seguro segurito?',
             text: "Una vez eliminada, no hay reversa!",
@@ -203,6 +211,36 @@ function accionesTareas(e){
             }
           })
     }
+    if(e.target.classList.contains('fa-edit')){
+        const text = e.target.parentElement.parentElement.querySelector('p').innerText;
+        const editarTarea = document.createElement('li');
+        editarTarea.id=e.target.parentElement.parentElement.id;
+        editarTarea.innerHTML='<input type="text" id="editar-tarea" value="'+ text + '">';
+        const eleme=e.target.parentElement.parentElement;
+        e.target.parentElement.parentElement.remove();
+
+        const listado = document.querySelector('.listado-pendientes ul');
+        listado.appendChild(editarTarea);
+        window.location.href='#editar-tarea';
+
+        const inputEditar =document.querySelector('#editar-tarea'); 
+        inputEditar.addEventListener('keypress',function(e){
+            var tecla = e.which || e.keyCode;
+            if(tecla === 13){
+                
+                if(inputEditar.value != '' && inputEditar.value != text){
+                    
+                    editarTareaF(inputEditar.value,inputEditar.parentElement.id.split(':'),0);
+                    inputEditar.remove();
+                }else{
+                    inputEditar.remove();
+                    listado.appendChild(eleme);
+                    
+                }
+            }
+        });
+        
+    }
     
 }
 
@@ -218,7 +256,7 @@ function cambiarEstadoTarea(tarea,estado){
     xhr.open('POST','inc/modelos/modelo-tareas.php',true);
     xhr.onload = function(){
         if(this.status === 200){
-            console.log(JSON.parse(xhr.responseText));
+            const respuesta = JSON.parse(xhr.responseText);
         }
     }
     xhr.send(datos);
@@ -257,4 +295,97 @@ function eliminarTareaBD(tarea){
         }
     }
     xhr.send(datos);
+}
+function editarTareaF(texto,id,estado){
+
+    const datos = new FormData();
+    datos.append('id_tarea',id[1]);
+    datos.append('accion', 'actualizar-total');
+    datos.append('texto',texto);
+    datos.append('estado',estado);
+    
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST','inc/modelos/modelo-tareas.php',true);
+    xhr.onload = function(){
+        if(this.status === 200){
+            const respuesta = JSON.parse(xhr.responseText);
+            if(respuesta.respuesta === 'correcto'){
+                const nuevaTarea = document.createElement('li');
+                            nuevaTarea.id='tarea:'+respuesta.id_tarea;
+                            nuevaTarea.classList.add('tarea');
+                            var statuos='';
+                            if(respuesta.estado === 1){
+                                statuos='completo';
+                            }
+                            nuevaTarea.innerHTML=`
+                                <p>${respuesta.texto}</p>
+                                <div class='acciones'>
+                                    <i class="far fa-check-circle ${statuos}"></i>
+                                    <i class="fas fa-edit"></i>
+                                    <i class="fas fa-trash"></i>
+                                </div>
+                            `;
+
+                            const listado = document.querySelector('.listado-pendientes ul');
+                            listado.appendChild(nuevaTarea);
+
+                            window.location.reload();
+            }
+        }
+    }
+    xhr.send(datos);
+}
+
+function elimProyecto(e){
+
+}
+
+function editProyecto(e){
+    const padre = e.target.parentElement.parentElement.querySelector('div.titul');
+    const titulo = padre.querySelector('h1.title');
+    titulo.remove();
+    padre.innerHTML='<input type="text" id="editar-proyecto" value="'+ titulo.innerText + '">';
+    const inputProy = document.querySelector('#editar-proyecto');
+    inputProy.addEventListener('keypress',function(e){
+            var tecla = e.which || e.keyCode;
+            if(tecla === 13){
+                if(inputProy != '' || inputProy != titulo.innerText){
+                    const id_p = document.querySelector('#id_proyecto').value;
+                    const datos = new FormData();
+                    datos.append('id_proyecto',id_p);
+                    datos.append('proyecto',inputProy.value);
+                    datos.append('accion','editar');
+                    
+                    
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'inc/modelos/modelo-proyecto.php',true);
+                    xhr.onload=function(){
+                        if(this.status === 200){
+                            const respuesta = JSON.parse(xhr.responseText);
+                            if(respuesta.respuesta === 'correcto'){
+                                const titulito = document.createElement('h1');
+                                titulito.classList.add('title');
+                                titulito.innerText=respuesta.proyecto;
+
+                                inputProy.remove();
+                                padre.appendChild(titulito);
+                            }else{
+                                inputProy.remove();
+                                padre.appendChild(titulo);
+                            }
+                        }
+                    };
+                    xhr.send(datos);
+                }else{
+                    inputProy.remove();
+                    padre.appendChild(titulo);
+                }
+            }
+    });
+    document.querySelector('div.titul').addEventListener('blur',function(){
+        inputProy.remove();
+        padre.appendChild(titulo);
+    });
+
 }
