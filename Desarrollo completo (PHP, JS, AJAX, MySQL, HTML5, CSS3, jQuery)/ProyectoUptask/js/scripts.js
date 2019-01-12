@@ -338,7 +338,40 @@ function editarTareaF(texto,id,estado){
 }
 
 function elimProyecto(e){
-
+    Swal({
+        title: 'Seguro segurito?',
+        text: "Una vez eliminada, no hay reversa!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Seh, hagamoslo!',
+        cancelButtonText: 'Nel, perame reviso'
+      }).then((result) => {
+        if (result.value) {
+ 
+            const id_p = document.querySelector('#id_proyecto').value;
+                                const datos = new FormData();
+                                datos.append('id_proyecto',id_p);
+                                datos.append('accion','elim-proy');
+                                
+                                
+                                var xhr = new XMLHttpRequest();
+                                xhr.open('POST', 'inc/modelos/modelo-tareas.php',true);
+                                xhr.onload=function(){
+                                    if(this.status === 200){
+                                        const respuesta = JSON.parse(xhr.responseText);
+                                        if(respuesta.respuesta === 'correcto'){
+                                            elimProyTotal(respuesta.id_proyecto);
+                                        }else{
+                                            console.log('en eliminar tareas');
+                                            console.log(respuesta);
+                                        }
+                                    }
+                                };
+                                xhr.send(datos);
+                            }
+                        })
 }
 
 function editProyecto(e){
@@ -388,4 +421,35 @@ function editProyecto(e){
         padre.appendChild(titulo);
     });
 
+}
+
+function elimProyTotal(id){
+    const datos = new FormData();
+                    datos.append('id_proyecto',id);
+                    datos.append('accion','elim-proy');
+                    
+                    
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'inc/modelos/modelo-proyecto.php',true);
+                    xhr.onload=function(){
+                        if(this.status === 200){
+                            const respuesta = JSON.parse(xhr.responseText);
+                            if(respuesta.respuesta === 'correcto'){
+                                Swal({
+                                    type: 'success',
+                                    title: '¡Felicitaciones!',
+                                    text: 'Haz acabado este proyecto ¡Muy bien!'
+                                  }).then(resultado =>{
+                                    if(resultado.value){
+                                        window.location.href='index.php';
+                                    }  
+                                    
+                                  })
+                            }else{
+                                console.log('en eliminar proyecto');
+                                console.log(respuesta);
+                            }
+                        }
+                    };
+                    xhr.send(datos);
 }

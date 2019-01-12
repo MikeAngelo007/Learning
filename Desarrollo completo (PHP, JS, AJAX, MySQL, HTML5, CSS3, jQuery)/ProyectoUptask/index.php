@@ -6,6 +6,7 @@ include 'inc/templates/header.php';
 include 'inc/templates/barra.php'; 
 
 if(isset($_GET['id_proyecto'])){
+    echo $_GET['id_proyecto'];
     $id_proyecto = $_GET['id_proyecto'];
 }
 ?>
@@ -20,6 +21,7 @@ if(isset($_GET['id_proyecto'])){
     if(isset($_GET['id_proyecto'])){
         $proyecto = obtenerNombreProyecto($id_proyecto);
     }
+    if(isset($_GET['id_proyecto'])){
     if(gettype($proyecto) === 'object'){?>
         <div class="titul">
             <h1 class="title">
@@ -50,7 +52,7 @@ if(isset($_GET['id_proyecto'])){
 
     <?php }else{
         echo '<h1>Elije un proyecto a la izquierda.</h1>';
-    } ?>
+    } }?>
         
  
 

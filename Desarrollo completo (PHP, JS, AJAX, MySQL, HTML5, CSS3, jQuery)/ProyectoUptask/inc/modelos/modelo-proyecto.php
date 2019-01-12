@@ -87,3 +87,38 @@ if($accion === 'editar'){
 
     echo json_encode($respuesta);
 }
+
+if($accion === 'elim-proy'){
+    include '../funciones/conexion.php';
+
+    try{
+        $stmt=$conn->prepare('DELETE FROM proyectos WHERE id = ?');
+        $stmt->bind_param('i', $id_proyecto);
+        $stmt->execute();
+
+        if($stmt->affected_rows > 0){
+            $respuesta=array(
+                'respuesta' => 'correcto',
+                'id_proyecto' => $id_proyecto,
+                'tipo' => $accion
+            );
+        }else{
+            $respuesta=array(
+                'respuesta' => 'incorrecto',
+                'error' => $stmt->error_list,
+                'tipo' => $accion,
+                'proyecto' => $id_proyecto
+            );
+        }
+
+        $stmt->close();
+        $conn->close();
+
+    }catch (Exception $e){
+        $respuesta = array(
+            'error' => $e->getMessage()
+        );
+    }
+
+    echo json_encode($respuesta); 
+}

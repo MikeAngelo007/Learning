@@ -164,3 +164,39 @@ if($accion === 'actualizar-total'){
 
     echo json_encode($respuesta);
 }
+
+if($accion === 'elim-proy'){
+    include '../funciones/conexion.php';
+
+    try{
+        $stmt=$conn->prepare('DELETE FROM tareas WHERE id_proyecto = ?');
+        $stmt->bind_param('i',$id_proyecto);
+        $stmt->execute();
+
+        if($stmt->affected_rows > -1){
+            $respuesta=array(
+                'respuesta' => 'correcto',
+                'id_proyecto' => $id_proyecto,
+                'numRows' => $stmt->affected_rows, 
+                'tipo' => $accion
+            );
+        }else{
+            $respuesta=array(
+                'respuesta' => 'incorrecto',
+                'error' => $stmt->error_list,
+                'tipo' => $accion,
+                'id_proyecto' => $id_proyecto
+            );
+        }
+
+        $stmt->close();
+        $conn->close();
+
+    }catch (Exception $e){
+        $respuesta = array(
+            'error' => $e->getMessage()
+        );
+    }
+
+    echo json_encode($respuesta);
+}
