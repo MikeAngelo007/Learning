@@ -23,6 +23,7 @@ function nuevoProyecto(e){
     listaProyectos.appendChild(nuevoProyecto);
 
     const inputNuevoProyecto = document.querySelector('#nuevo-proyecto');
+    
     inputNuevoProyecto.addEventListener('keypress', function(e){
         var tecla = e.which || e.keyCode;
         if(tecla === 13){
@@ -42,9 +43,11 @@ function nuevoProyecto(e){
 }
 
 function guardarProyectoDB(nombreProyecto){
+    const usuario = document.querySelector('#usuario_owner').value;
     const datos = new FormData();
     datos.append('proyecto',nombreProyecto);
     datos.append('accion','crear');
+    datos.append('user',usuario);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'inc/modelos/modelo-proyecto.php',true);
 

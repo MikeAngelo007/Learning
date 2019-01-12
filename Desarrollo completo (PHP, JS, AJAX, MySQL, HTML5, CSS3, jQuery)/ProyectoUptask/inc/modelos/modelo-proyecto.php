@@ -8,6 +8,9 @@ if(isset($_POST['proyecto'])){
 if(isset($_POST['id_proyecto'])){
     $id_proyecto = $_POST['id_proyecto'];
 }
+if(isset($_POST['user'])){
+    $user = $_POST['user'];
+}
 
 if($accion === 'crear'){
     //Codigo para crear
@@ -16,8 +19,8 @@ if($accion === 'crear'){
     include '../funciones/conexion.php';
 
     try{
-        $stmt=$conn->prepare('INSERT INTO proyectos (nombre) VALUES (?)');
-        $stmt->bind_param('s',$proyecto);
+        $stmt=$conn->prepare('INSERT INTO proyectos (nombre,usuario) VALUES (?,?)');
+        $stmt->bind_param('ss',$proyecto,$user);
         $stmt->execute();
 
         if($stmt->affected_rows > 0){
@@ -25,6 +28,7 @@ if($accion === 'crear'){
                 'respuesta' => 'correcto',
                 'id_insertado' => $stmt->insert_id,
                 'nombre_proyecto' => $proyecto,
+                'user' => $user,
                 'tipo' => $accion
             );
         }else{

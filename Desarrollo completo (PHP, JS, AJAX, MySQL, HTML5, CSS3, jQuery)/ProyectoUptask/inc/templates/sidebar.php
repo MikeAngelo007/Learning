@@ -6,12 +6,15 @@
         <div class="panel lista-proyectos">
             <h2>Proyectos</h2>
             <ul id="proyectos">
-                <?php $proyectos = obtenerProyectos();
+                <?php
+                $proyectos = obtenerProyectos();
                     if($proyectos){
                         foreach($proyectos as $proyecto){;
-                            echo '<li>';
-                            echo '<a href="index.php?id_proyecto=' . $proyecto['id'] . '" id="proyecto:' . $proyecto['id'] . '">' . $proyecto['nombre'] . ' </a>';
-                            echo '</li>';
+                            if($proyecto['usuario'] === $_SESSION['nombre']){
+                                echo '<li>';
+                                echo '<a href="index.php?id_proyecto=' . $proyecto['id'] . '" id="proyecto:' . $proyecto['id'] . '">' . $proyecto['nombre'] . ' </a>';
+                                echo '</li>';
+                            }
                         }
                     }
                 ?>

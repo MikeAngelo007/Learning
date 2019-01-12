@@ -6,13 +6,12 @@ include 'inc/templates/header.php';
 include 'inc/templates/barra.php'; 
 
 if(isset($_GET['id_proyecto'])){
-    echo $_GET['id_proyecto'];
     $id_proyecto = $_GET['id_proyecto'];
 }
 ?>
 
 
-
+<input type="hidden" id="usuario_owner" value="<?php echo $_SESSION['nombre']; ?>">
 <div class="contenedor">
     <?php include 'inc/templates/sidebar.php'; ?>
 
@@ -20,6 +19,8 @@ if(isset($_GET['id_proyecto'])){
     <?php 
     if(isset($_GET['id_proyecto'])){
         $proyecto = obtenerNombreProyecto($id_proyecto);
+
+        
     }
     if(isset($_GET['id_proyecto'])){
     if(gettype($proyecto) === 'object'){?>
@@ -27,7 +28,12 @@ if(isset($_GET['id_proyecto'])){
             <h1 class="title">
                 <?php  
                     foreach($proyecto as $nombre){ ?>
-                        <span><?php echo $nombre['nombre']; ?></span>
+                        <span><?php echo $nombre['nombre']; 
+                        if($nombre['usuario'] != $_SESSION['nombre']){
+                            header('Location:index.php');
+                            
+                        }
+                        ?></span>
                         
 
                 <?php   } ?>
