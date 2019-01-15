@@ -5,8 +5,11 @@ function eventListeners(){
     if(document.querySelector('.nueva-tarea')){
         document.querySelector('.nueva-tarea').addEventListener('click',agregarTarea);
     }
-    if(document.querySelector('.listado-pendientes')){
-        document.querySelector('.listado-pendientes').addEventListener('click',accionesTareas);
+    if(document.querySelector('.listado-pendientes.pendientes')){
+        document.querySelector('.listado-pendientes.pendientes').addEventListener('click',accionesTareas);
+    }
+    if(document.querySelector('.listado-pendientes.completos')){
+        document.querySelector('.listado-pendientes.completos').addEventListener('click',accionesTareas);
     }
     if(document.querySelector('#edit-proyect')){
         document.querySelector('#edit-proyect').addEventListener('click',editProyecto);
@@ -183,16 +186,31 @@ function agregarTarea(e){
 function accionesTareas(e){
     e.preventDefault();
     if(e.target.classList.contains('fa-check-circle')){
+        const work = e.target.parentElement.parentElement;
+        const id_p=document.querySelector('#id_proyecto').value;
+        
         if(e.target.classList.contains('completo')){
             cambiarEstadoTarea(e.target,0);
             e.target.classList.remove('completo');
             e.target.parentElement.parentElement.querySelector('p').classList.remove('completo');
+            work.remove();
+            
+            document.querySelector('.listado-pendientes.pendientes ul').appendChild(work);
+
+            window.location.href=`index.php?id_proyecto=${id_p}#${work.id}`;
+            //window.location.reload();
+
             
         }else{
             cambiarEstadoTarea(e.target,1);
             e.target.classList.add('completo');
             e.target.parentElement.parentElement.querySelector('p').classList.add('completo');
+            work.remove();
             
+            document.querySelector('.listado-pendientes.completos ul').appendChild(work);
+            //window.location.href=`#${work.id}`;
+            window.location.href=`index.php?id_proyecto=${id_p}#${work.id}`;
+            //window.location.reload();
         }
     }
     if(e.target.classList.contains('fa-trash')){

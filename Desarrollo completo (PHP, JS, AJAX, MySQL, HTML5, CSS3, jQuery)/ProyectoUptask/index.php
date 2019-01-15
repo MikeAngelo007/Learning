@@ -62,9 +62,9 @@ if(isset($_GET['id_proyecto'])){
         
  
 
-        <h2>Listado de tareas:</h2>
+        <h2>Listado de tareas pendientes:</h2>
 
-        <div class="listado-pendientes">
+        <div class="listado-pendientes pendientes">
             <ul>
                 <?php 
                     if(isset($id_proyecto)){
@@ -73,17 +73,25 @@ if(isset($_GET['id_proyecto'])){
                     if(isset($tareas)){
                         if(gettype($tareas) === 'object'){
                             if($tareas->num_rows > 0){
-                                foreach($tareas as $tarea){ ?>
-                                    <li id="tarea:<?php echo $tarea['id'] ?>" class="tarea">
-                                        <p class="<?php if ((int)$tarea['estado'] === 1){ echo 'completo';}; ?>"><?php echo $tarea['nombre']; ?></p>
+                                $pend=0;
+                                foreach($tareas as $tarea){ 
+                                    if ((int)$tarea['estado'] === 0){
+                                        $pend=$pend+1;?>
+                                        <li id="tarea:<?php echo $tarea['id'] ?>" class="tarea pendiente">
+                                        <p><?php echo $tarea['nombre']; ?></p>
                                         <div class="acciones">
-                                            <i class="far fa-check-circle <?php if ((int)$tarea['estado'] === 1){ echo 'completo';}; ?>"></i>
+                                            <i class="far fa-check-circle"></i>
                                             <i class="fas fa-edit"></i>
                                             <i class="fas fa-trash"></i>
                                         </div>
                                     </li> 
 
                             <?php   }
+                                }
+
+                                if($pend == 0){
+                                    echo '<p class="lista-vacia">No hay tareas pendientes en este proyecto.</p>';
+                                }
 
                             }else{
                                 echo '<p class="lista-vacia">No hay tareas en este proyecto.</p>';
@@ -96,6 +104,51 @@ if(isset($_GET['id_proyecto'])){
                     }
                 ?>
                  
+            </ul>
+        </div>
+
+        <h2>Listado de tareas completadas:</h2>
+
+        <div class="listado-pendientes completos">
+            <ul>
+                <?php 
+                    if(isset($id_proyecto)){
+                        $tareas = obtenerTareasProyecto($id_proyecto); 
+                    }
+                    if(isset($tareas)){
+                        if(gettype($tareas) === 'object'){
+                            if($tareas->num_rows > 0){
+                                $comp=0;
+                                foreach($tareas as $tarea){ 
+                                    if ((int)$tarea['estado'] === 1){
+                                        $comp= $comp+1;?>
+                                        <li id="tarea:<?php echo $tarea['id'] ?>" class="tarea completada">
+                                        <p class="completo"><?php echo $tarea['nombre']; ?></p>
+                                        <div class="acciones">
+                                            <i class="far fa-check-circle completo"></i>
+                                            <i class="fas fa-edit"></i>
+                                            <i class="fas fa-trash"></i>
+                                        </div>
+                                    </li> 
+
+                            <?php   }
+                                }
+
+                                if($comp == 0){
+                                    echo '<p class="lista-vacia">No hay tareas completadas en este proyecto.</p>';
+                                }
+
+                            }else{
+                                echo '<p class="lista-vacia">No hay tareas en este proyecto.</p>';
+                            }
+                        }else{
+                            echo '<p>Elige un proyecto.</p>';
+                        }
+                    }else{
+                        echo '<p>Elige un proyecto.</p>';
+                    }
+                ?>
+                
             </ul>
         </div>
     </main>
