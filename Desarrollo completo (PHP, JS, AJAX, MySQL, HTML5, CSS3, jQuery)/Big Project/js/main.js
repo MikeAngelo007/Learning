@@ -248,7 +248,7 @@ $(function(){
 
     //Cuenta regresiva
 
-    $('.cuenta-regresiva').countdown('2018/12/21 09:00:00',function(event){
+    $('.cuenta-regresiva').countdown('2019/07/11 01:00:00',function(event){
         $('#dias').html(event.strftime('%D'));
         $('#horas').html(event.strftime('%H'));
         $('#minutos').html(event.strftime('%M'));
