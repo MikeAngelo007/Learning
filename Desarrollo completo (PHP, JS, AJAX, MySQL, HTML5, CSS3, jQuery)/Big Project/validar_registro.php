@@ -1,13 +1,12 @@
 <?php if (isset($_POST['submit'])):
         
-        $nombre=$_POST['nombre'];
-        $apellido=$_POST['apellido'];
-        $email=$_POST['email'];
+        $nombre =filter_var($_POST['nombre'],FILTER_SANITIZE_STRING);
+        $apellido = filter_var($_POST['apellido'],FILTER_SANITIZE_STRING);
+        $email = filter_var($_POST['email'],FILTER_SANITIZE_EMAIL);
         $genero=3;
-        $genero=$_POST['genero'];
-        $regalo=$_POST['regalo'];
-
-        $total=$_POST['total_pedido'];
+        $regalo = filter_var($_POST['regalo'],FILTER_SANITIZE_NUMBER_INT);
+        $total = filter_var($_POST['total_pedido'],FILTER_SANITIZE_STRING);
+        $genero =filter_var((int) $_POST['genero'],FILTER_SANITIZE_NUMBER_INT);
 
         $fecha=date('Y-m-d H:i:s');
 
