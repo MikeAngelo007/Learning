@@ -4,6 +4,7 @@ if(isset($_POST['id_proyecto'])){
     $id_proyecto = (int) $_POST['id_proyecto'];
 }
 if(isset($_POST['tarea'])){
+    //$tarea = filter_var($_POST['tarea'],FILTER_SANITIZE_STRING);
     $tarea = $_POST['tarea'];
 }
 if(isset($_POST['id_tarea'])){
@@ -13,6 +14,7 @@ if(isset($_POST['estado'])){
     $estado=$_POST['estado'];
 }
 if(isset($_POST['texto'])){
+    //$texto=filter_var($_POST['texto'],FILTER_SANITIZE_STRING);
     $texto=$_POST['texto'];
 }
 

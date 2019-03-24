@@ -1,0 +1,86 @@
+html{
+    font-size: 62.5%; /* Reset para REMS - 1rem = 10px de 16px */
+}
+body{
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+.contenedor{
+    max-width: 110rem;
+    margin: 0 auto;
+}
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 3.4rem;
+}
+h3{
+    font-size: 3rem;
+}
+h4{
+    font-size: 2.6rem;
+}
+
+.seccion{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+.fw-300{
+    font-weight: 300;
+}
+.centrar-texto{
+    text-align: center;
+}
+
+.site-header.inicio{
+    background-image: url(../img/header.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+    min-height: 60rem;
+}
+.contenido-header{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.contenido-header h1{
+    color: white;
+    max-width: 60rem;
+    padding-bottom: 2rem;
+}
+.barra{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 3rem;
+}
+
+.navegacion a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.8rem; /* 18 pixeles */
+    margin: 0 1rem;
+}
+.navegacion a:hover{
+    color: #71b100;
+}
+.navegacion a:last-of-type{
+    margin-right: 0;
+}
+
+
+.iconos-nosotros{
+    display: flex;
+    justify-content: space-between;
+}
+.icono{
+    flex-basis: calc(33.3% - 1rem);
+}
+.icono h3{
+    text-transform: uppercase;
+}
