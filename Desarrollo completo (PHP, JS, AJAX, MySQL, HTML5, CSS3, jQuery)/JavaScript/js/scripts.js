@@ -597,3 +597,12 @@ function scope2(){
 
 scope1();
 scope2(); */
+
+
+function showModal() {
+    document.getElementById('openModal').style.display = 'block';
+  }
+  
+  function CloseModal() {
+    document.getElementById('openModal').style.display = 'none';
+  }

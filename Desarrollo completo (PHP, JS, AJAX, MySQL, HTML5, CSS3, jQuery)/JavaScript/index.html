@@ -4,11 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Aprendiendo JavaScript</title>
 </head>
 <body>
 
     <h1>Total a pagar</h1>
+    <a href="#test" title="test" class="probemos" onclick="javascript:showModal();">.</a>
+    <div id="openModal" class="modalDialog">
+        <div>
+          <a href="#close" title="Close" class="close" onclick="javascript:CloseModal();">X</a>
+          <h2>Mi modal</h2>
+          <p>Este es un ejemplo de modal, creado gracias al poder de CSS3.</p>
+          <p>Puedes hacer un montón de cosas aquí, como alertas o incluso crear un formulario de registro aquí mismo.</p>
+          <img src="proba.jpg" alt="Probando...">
+        </div>
+      </div>
+
     <div id="resultado">
 
     </div>
@@ -16,6 +28,9 @@
     <div class="mensaje">
 
     </div>
+    
+
+
         <script src="js/scripts.js"></script>
 </body>
 </html>
