@@ -64,5 +64,10 @@ transition: opacity 400ms ease-in;
 
     border-radius: 50%;
 
+    
 
+}
+
+.probemos:hover{
+    -webkit-transform: scale(1.1);
 }
