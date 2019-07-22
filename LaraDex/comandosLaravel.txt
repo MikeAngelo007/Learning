@@ -1,0 +1,20 @@
+php artisan app:name [nombre] --> Para darle un nombre a la aplicacion. Por default es App.
+
+config -> app.php -> 'timezone'=>'America/Bogota'   ---> Para cambiar la zona horaria (https://www.php.net/manual/es/timezones.america.php)
+
+
+config -> app.php -> 'locale'=>'es'   ---> Para cambiar idioma a español 
+resources->lang-> Crear carpeta 'es' con archivos auth, pagination,passwords y validation.
+
+
+
+--------------------------  Rutas:
+sin parametros:
+Route::[put/delete/post/get]('[url destino]',function(){
+    return [algo];
+});
+
+con parametros:
+Route::[put/delete/post/get]('[url destino]/{vari}',function($vari){
+    return 'Imprime: '.$vari;
+});
