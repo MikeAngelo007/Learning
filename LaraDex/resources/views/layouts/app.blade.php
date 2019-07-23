@@ -8,6 +8,11 @@
     <title>LaraDex - @yield('title') </title>
 </head>
 <body>
+    <nav class="navbar navbar-dark bg-primary">
+        <a href="/" class="navbar-brand">Laradex</a>
+        <a href="{{route('trainers.index')}}" class="navbar-brand">Entrenadores</a>
+        <a href="{{route('trainers.create')}}" class="navbar-brand">Crear entrenador</a>
+    </nav>
     <div class="container">
         @yield('content')
     </div>

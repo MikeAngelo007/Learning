@@ -29,3 +29,32 @@ php artisan make:controller [Nombre controller] --resource      ==========> Para
 https://laravel.com/docs/5.8/blade
 
 
+------------------------- Request: (https://laravel.com/docs/5.8/requests)
+
+https://laravel.com/docs/5.8/csrf
+
+------------------------- Modelos: 
+php artisan make:model [Nombre modelo (Primera letra en mayuscula y singular)]     =====> Sin migracion
+php artisan make:model [Nombre modelo (Primera letra en mayuscula y singular)] -m  =====> Con migracion
+
+https://laravel.com/docs/5.8/migrations
+
+php artisan make:migration [descripcion de la migracion] 
+php artisan make:migration [descripcion de la migracion] --table=[nombre de la tabla donde se hara migracion]
+
+Ej.
+php artisan make:migration add_avatar_to_trainer_table --table=trainers =========> Para agregar atributo o columna a tabla ya creada
+
+------------------------- MySQL: (https://laravel.com/docs/5.8/database)
+
+php artisan migrate   -------->>>>>>> Ejecutar las migraciones
+
+app -> providers -> AppServiceProvider ->
+        use Illuminate\Support\Facades\Schema;
+         boot(){
+              Schema::defaultStringLength(191); 
+              }  ===========> Configuracion manual para MySQL
+ 
+------------------------ Slugs: Permiten ocultar las variables y rutas de las url
+
+php artisan make:migration add_slug_to_[nombre de la tabla a la que aplicara el slug] --table=[nombre de la tabla a la que aplicara el slug]

@@ -3,6 +3,7 @@
 namespace LaraDex\Http\Controllers;
 
 use Illuminate\Http\Request;
+use LaraDex\Trainer;
 
 class TrainerController extends Controller
 {
@@ -13,7 +14,8 @@ class TrainerController extends Controller
      */
     public function index()
     {
-        return 'Hello! Welcome to my chimichanga!';
+        $trainers= Trainer::all();
+        return view('trainers.index',compact('trainers'));
     }
 
     /**
@@ -34,7 +36,22 @@ class TrainerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request->all();
+        
+
+        if($request->hasFile('avatar')){
+            $file = $request->file('avatar');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/',$name); /* Crea y guarda las imagenes en una carpeta images*/
+        }
+
+        $trainer = new Trainer(); /* Importar Trainer usando: use LaraDex\Trainer;*/
+        $trainer->name = $request->input('name');
+        $trainer->avatar = $name;
+        $trainer->slug = $request->input('slug');
+        $trainer->save();
+        return redirect()->route('trainers.index')->with('info','Entrenador creado!');
+        
     }
 
     /**
@@ -43,8 +60,14 @@ class TrainerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+   
+   
+    public function show(Trainer $trainer) /** En el modelo se configuro que el slug fuera el key */
+     //public function show($slug)
+    {   
+        //$trainer= Trainer::findOrFail($id);
+        //$trainer=Trainer::where('slug','=',$slug)->firstOrFail(); 
+        return view('trainers.show',compact('trainer'));
         //
     }
 
