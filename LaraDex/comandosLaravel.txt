@@ -8,7 +8,7 @@ resources->lang-> Crear carpeta 'es' con archivos auth, pagination,passwords y v
 
 
 
---------------------------  Rutas:
+--------------------------  Rutas: (https://laravel.com/docs/5.8/routing)
 sin parametros:
 Route::[put/delete/post/get]('[url destino]',function(){
     return [algo];
@@ -18,3 +18,14 @@ con parametros:
 Route::[put/delete/post/get]('[url destino]/{vari}',function($vari){
     return 'Imprime: '.$vari;
 });
+
+
+------------------------- Controladores: (https://laravel.com/docs/5.8/controllers)
+
+php artisan make:controller [Nombre controller]      ==========> Para crear un controlador basico
+php artisan make:controller [Nombre controller] --resource      ==========> Para crear un controlador restfull (Crea un CRUD para un modelo...creo)
+
+------------------------- Vistas: (https://laravel.com/docs/5.8/views)
+https://laravel.com/docs/5.8/blade
+
+
