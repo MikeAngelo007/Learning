@@ -1,10 +1,10 @@
 php artisan app:name [nombre] --> Para darle un nombre a la aplicacion. Por default es App.
 
-config -> app.php -> 'timezone'=>'America/Bogota'   ---> Para cambiar la zona horaria (https://www.php.net/manual/es/timezones.america.php)
+config/app.php -> 'timezone'=>'America/Bogota'   ---> Para cambiar la zona horaria (https://www.php.net/manual/es/timezones.america.php)
 
 
-config -> app.php -> 'locale'=>'es'   ---> Para cambiar idioma a español 
-resources->lang-> Crear carpeta 'es' con archivos auth, pagination,passwords y validation.
+config/app.php -> 'locale'=>'es'   ---> Para cambiar idioma a español 
+resources-/lang-> Crear carpeta 'es' con archivos auth, pagination,passwords y validation.
 
 
 
@@ -49,7 +49,7 @@ php artisan make:migration add_avatar_to_trainer_table --table=trainers ========
 
 php artisan migrate   -------->>>>>>> Ejecutar las migraciones
 
-app -> providers -> AppServiceProvider ->
+app/providers/AppServiceProvider ->
         use Illuminate\Support\Facades\Schema;
          boot(){
               Schema::defaultStringLength(191); 
@@ -58,3 +58,14 @@ app -> providers -> AppServiceProvider ->
 ------------------------ Slugs: Permiten ocultar las variables y rutas de las url
 
 php artisan make:migration add_slug_to_[nombre de la tabla a la que aplicara el slug] --table=[nombre de la tabla a la que aplicara el slug]
+
+
+------------------------ Laravel Collective: (https://laravelcollective.com/)
+https://github.com/LaravelCollective/docs/blob/5.6/html.md
+
+Instalación: 
+composer require 'laravelcollective/html:^5.8.0' ===========> Correr en consola
+Collective\Html\HtmlServiceProvider::class, ===========> Ponerlo en config/app.php -> 'providers'
+
+'Form' => Collective\Html\FormFacade::class,  ===========> Ponerlo en config/app.php -> 'aliases'
+'Html' => Collective\Html\HtmlFacade::class,  ===========> Ponerlo en config/app.php -> 'aliases'
