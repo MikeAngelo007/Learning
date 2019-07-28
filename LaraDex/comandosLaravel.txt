@@ -86,4 +86,8 @@ php artisan make:request [Pa'que lo usaremos]
 
 Ej. php artisan make:request StoreTrainerRequest
 
--------------------------- Http Responses: 
+-------------------------- Http Responses: (https://laravel.com/docs/5.8/responses)
+
+
+-------------------------- Authentication: (https://laravel.com/docs/5.8/authentication)
+php artisan make:auth
