@@ -81,3 +81,8 @@ Inserta una vista o codigo dentro de otro
 -------------------------- Validaciones: (https://laravel.com/docs/5.8/validation)
 Para confirmar si los campos son requeridos o no, se usa en el controller
 
+-------------------------- FormRequest:
+php artisan make:request [Pa'que lo usaremos]
+
+Ej. php artisan make:request StoreTrainerRequest
+

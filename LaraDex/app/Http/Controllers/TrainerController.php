@@ -4,6 +4,7 @@ namespace LaraDex\Http\Controllers;
 
 use Illuminate\Http\Request;
 use LaraDex\Trainer;
+use LaraDex\Http\Requests\StoreTrainerRequest;
 
 class TrainerController extends Controller
 {
@@ -34,16 +35,12 @@ class TrainerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    //public function store(Request $request)
+    public function store(StoreTrainerRequest $request)
     {
         //return $request->all();
         
-        $validatedData = $request->validate([
-
-            'name'=>'required|max: 10',
-            'avatar'=>'required|image',
-            'slug'=>'required'
-        ]);
+        
         if($request->hasFile('avatar')){
             $file = $request->file('avatar');
             $name = time().$file->getClientOriginalName();
@@ -99,7 +96,7 @@ class TrainerController extends Controller
     {   
         $validatedData = $request->validate([
 
-            'name'=>'max: 10',
+            'name'=>'max: 100',
             'avatar'=>'image'
         ]);
         $trainer->fill($request->except('avatar')); //Rellena cada campo de trainer con los datos del request, excepto avatar.
@@ -121,8 +118,12 @@ class TrainerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Trainer $trainer)
     {
         //
+        $file_path=public_path().'/images/'.$trainer->avatar;
+        \File::delete($file_path);
+        $trainer->delete();
+        return redirect()->route('trainers.index')->with('info','Entrenador eliminado!');
     }
 }

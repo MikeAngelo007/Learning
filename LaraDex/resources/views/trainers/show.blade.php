@@ -14,5 +14,11 @@
 
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         <a href="/trainers/{{$trainer->slug}}/edit" class="btn btn-primary">Editar</a>
+
+        <form method="POST" action="/trainers/{{$trainer->slug}}">
+            @method('delete')
+            @csrf
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
     </div>
     @endsection
