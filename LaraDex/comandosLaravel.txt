@@ -78,3 +78,6 @@ Collective\Html\HtmlServiceProvider::class, ===========> Ponerlo en config/app.p
 
 Inserta una vista o codigo dentro de otro
 
+-------------------------- Validaciones: (https://laravel.com/docs/5.8/validation)
+Para confirmar si los campos son requeridos o no, se usa en el controller
+
