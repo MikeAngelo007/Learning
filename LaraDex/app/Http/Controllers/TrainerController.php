@@ -38,7 +38,12 @@ class TrainerController extends Controller
     {
         //return $request->all();
         
+        $validatedData = $request->validate([
 
+            'name'=>'required|max: 10',
+            'avatar'=>'required|image',
+            'slug'=>'required'
+        ]);
         if($request->hasFile('avatar')){
             $file = $request->file('avatar');
             $name = time().$file->getClientOriginalName();
@@ -91,7 +96,12 @@ class TrainerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Trainer $trainer)
-    {
+    {   
+        $validatedData = $request->validate([
+
+            'name'=>'max: 10',
+            'avatar'=>'image'
+        ]);
         $trainer->fill($request->except('avatar')); //Rellena cada campo de trainer con los datos del request, excepto avatar.
         if($request->hasFile('avatar')){
             $file = $request->file('avatar');

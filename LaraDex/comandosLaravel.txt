@@ -69,3 +69,12 @@ Collective\Html\HtmlServiceProvider::class, ===========> Ponerlo en config/app.p
 
 'Form' => Collective\Html\FormFacade::class,  ===========> Ponerlo en config/app.php -> 'aliases'
 'Html' => Collective\Html\HtmlFacade::class,  ===========> Ponerlo en config/app.php -> 'aliases'
+
+
+------------------------- subView
+<div>
+@include('url')
+</div>
+
+Inserta una vista o codigo dentro de otro
+

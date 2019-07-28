@@ -7,7 +7,8 @@
 
     @section('content')
     
-        {!! Form::open(['route'=>'trainers.store', 'method'=>'POST', 'files'=>true]) !!}
+    <!-- LARAVEL COLLECTIVE: CREATE -->
+     <!--   {!! Form::open(['route'=>'trainers.store', 'method'=>'POST', 'files'=>true]) !!}
             <div class="form-group">
                 {!! Form::label('name','Nombre: ') !!}
                 {!! Form::text('name',null,['class'=>'form-group']) !!}
@@ -22,26 +23,23 @@
                 {!! Form::text('slug',null,['class'=>'form-group']) !!}
             </div>
             {!! Form::submit('Guardar',['class'=>'btn btn-primary']) !!}
-        {!! Form::close() !!}
+    {!! Form::close() !!} -->
 
-        <!-- enctype="multipart/form-data" se usa en formularios con subida de archivos -->
-        <!--<form class="form-group" method="POST" action="/trainers" enctype="multipart/form-data">
+    @if( $errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
             
-            @csrf
-            <div class="form-group">
-                <label for="">Nombre: </label>
-                <input type="text" class="form-control" name="name" id="name">
-            </div>
-
-            <div class="form-group">
-                    <label for="">Avatar: </label>
-                    <input type="file" name="avatar" id="avatar">
-                </div>
-            <div class="form-group">
-                        <label for="">ID: </label>
-                        <input type="text" class="form-control" name="slug" id="slug">
-                    </div>
+    @endif
+        <!-- enctype="multipart/form-data" se usa en formularios con subida de archivos -->
+    <form class="form-group" method="POST" action="/trainers" enctype="multipart/form-data">
+            
+            @include('trainers.form')
             <button type="submit" class="btn btn-primary">Guardar</button>
-        </form> -->
+    </form> 
     
     @endsection
