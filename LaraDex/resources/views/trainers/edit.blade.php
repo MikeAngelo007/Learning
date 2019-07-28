@@ -7,6 +7,7 @@
 
     @section('content')
 
+    @include('common.errors')
     <!-- LARAVEL COLLECTIVE: EDIT-->
     <!-- {!! Form::model($trainer,['route'=>['trainers.update', $trainer], 'method'=>'PUT', 'files'=>true])!!}
         <div class="form-group">

@@ -7,6 +7,7 @@
 
     @section('content')
     
+    @include('common.session')
         <h1>Trainers</h1>
         <div class="row">
             @foreach($trainers as $trainer) <!-- $trainers viene del compact en TrainerController@index -->

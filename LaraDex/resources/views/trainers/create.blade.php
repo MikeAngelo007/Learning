@@ -25,16 +25,8 @@
             {!! Form::submit('Guardar',['class'=>'btn btn-primary']) !!}
     {!! Form::close() !!} -->
 
-    @if( $errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{$error}}</li>
-            @endforeach
-        </ul>
-    </div>
-            
-    @endif
+    @include('common.errors')
+    @include('common.session')
         <!-- enctype="multipart/form-data" se usa en formularios con subida de archivos -->
     <form class="form-group" method="POST" action="/trainers" enctype="multipart/form-data">
             

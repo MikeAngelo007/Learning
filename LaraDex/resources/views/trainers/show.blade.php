@@ -6,6 +6,9 @@
     
 
     @section('content')
+
+    
+    @include('common.session')
     
     <div class="text-center">
         <h1>{{$trainer->name}}</h1>

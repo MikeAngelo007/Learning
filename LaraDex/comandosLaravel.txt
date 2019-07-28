@@ -86,3 +86,4 @@ php artisan make:request [Pa'que lo usaremos]
 
 Ej. php artisan make:request StoreTrainerRequest
 
+-------------------------- Http Responses: 

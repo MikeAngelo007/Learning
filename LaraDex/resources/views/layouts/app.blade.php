@@ -14,6 +14,9 @@
         <a href="{{route('trainers.create')}}" class="navbar-brand">Crear entrenador</a>
     </nav>
     <div class="container">
+        
+
+        
         @yield('content')
     </div>
 </body>

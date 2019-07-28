@@ -101,6 +101,9 @@ class TrainerController extends Controller
         ]);
         $trainer->fill($request->except('avatar')); //Rellena cada campo de trainer con los datos del request, excepto avatar.
         if($request->hasFile('avatar')){
+            $file_path=public_path().'/images/'.$trainer->avatar;
+            \File::delete($file_path);
+
             $file = $request->file('avatar');
             $name = time().$file->getClientOriginalName();
             $trainer->avatar= $name;
@@ -108,7 +111,7 @@ class TrainerController extends Controller
         }
         $trainer->save();
 
-        return redirect()->route('trainers.index')->with('info','Entrenador editado!');
+        return redirect()->route('trainers.show', [$trainer])->with('info','Entrenador editado!'); /** El with funciona si hay una comprobacion de que el session exista en la pagina dodne se usara. app.php tiene dicha comprobacion */
 
     }
 
