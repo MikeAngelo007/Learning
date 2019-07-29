@@ -24,8 +24,9 @@ class TrainerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $request->user()->authorizeRoles(['admin']);
         return view('trainers.create');
     }
 
@@ -79,9 +80,10 @@ class TrainerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Trainer $trainer)
+    public function edit(Trainer $trainer,Request $request)
     {
         //
+        $request->user()->authorizeRoles(['admin']);
         return view('trainers.edit',compact('trainer'));
     }
 
