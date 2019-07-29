@@ -26,8 +26,13 @@ class TrainerController extends Controller
      */
     public function create(Request $request)
     {
-        $request->user()->authorizeRoles(['admin']);
-        return view('trainers.create');
+        if ($request->user()) {
+            # code...
+            $request->user()->authorizeRoles(['admin']);
+            return view('trainers.create');
+        }
+        abort(401,'Accion no autorizada');
+        
     }
 
     /**
