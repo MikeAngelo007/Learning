@@ -91,3 +91,20 @@ Ej. php artisan make:request StoreTrainerRequest
 
 -------------------------- Authentication: (https://laravel.com/docs/5.8/authentication)
 php artisan make:auth
+
+-------------------------- Roles:
+crear migracion role_user para relacionarlos
+user -> belongsToMany(Role)
+role -> belongsToMany(User) ============> Ejemplo en los Modelos.
+
+---------- Seeders: (https://laravel.com/docs/5.8/seeding)
+Datos falsos pa' llenar
+
+php artisan make:seeder [ModeloAlQueAplicara]
+
+Ej. php artisan make:seeder RoleTableSeeder
+
+Se crean los datos de prueba en cada seeder (database/seeds/?)
+
+
+php artisan migrate:refresh --seed
