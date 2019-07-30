@@ -49,6 +49,7 @@ Route::get('/prueba/{param}/cont/{variab}','PruebaController@pruebaParTwo');
 
 
 Route::resource('trainers','TrainerController'); /* Enrutar a un controlador resource o controlador restfull */
+Route::resource('pokemons','PokemonController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
