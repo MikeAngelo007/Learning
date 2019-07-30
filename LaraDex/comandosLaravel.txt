@@ -108,3 +108,14 @@ Se crean los datos de prueba en cada seeder (database/seeds/?)
 
 
 php artisan migrate:refresh --seed    ==============> Elimina todos los datos y aplica los seeders
+
+---------------------- Validaciones: Ejemplos en el modelo Trainer
+1. se creo el scaffold authentication
+2. Se creo el modelo Role y las migraciones necesarias, ademas de los metodos que los relacionan.
+3. Se crearon y configuraron los seeders, con los datos de prueba.
+4. Se hizo la logica de validacion en el modelo Trainer.
+5. se usaron los metodos del paso anterior para validar los metodos a los que peude acceder un usuario.
+
+
+
+---------------------- Incorporando Vue.js: (https://laravel.com/docs/5.8/frontend)

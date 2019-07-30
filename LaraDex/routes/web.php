@@ -11,6 +11,14 @@
 |
 */
 
+/* Route::middleware('auth')->group(function(){
+
+    Route::get('/trainers/create','TrainerController@create')->name('trainers.create');
+    Route::post('/trainers','TrainerController@store')->name('trainers.store');
+    
+
+}); */
+
 Route::get('/', function () {
     return view('welcome');
 });

@@ -31,7 +31,7 @@ class TrainerController extends Controller
             $request->user()->authorizeRoles(['admin']);
             return view('trainers.create');
         }
-        abort(401,'Accion no autorizada');
+        abort(401,'Accion no autorizada'); /** Quitar el if y este abort en caso d eusar el middleware de web.php */
         
     }
 
