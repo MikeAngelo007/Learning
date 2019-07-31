@@ -26,6 +26,7 @@
 </div>
 </template>
 <script>
+  import EventBus from '../event-bus.js';
   export default {
     data(){
       return {
@@ -42,6 +43,7 @@
         .then(function(res){
           console.log(res)
           $('#addPokemon').modal('hide');
+          EventBus.$emit('pokemon-added',res.data.pokemon)
         })
         .catch(function(err){
           console.log(err)

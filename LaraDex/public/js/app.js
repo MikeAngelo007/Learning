@@ -1715,6 +1715,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _event_bus_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../event-bus.js */ "./resources/js/event-bus.js");
 //
 //
 //
@@ -1742,6 +1743,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1757,6 +1759,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         console.log(res);
         $('#addPokemon').modal('hide');
+        _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('pokemon-added', res.data.pokemon);
       })["catch"](function (err) {
         console.log(err);
       });
@@ -1808,6 +1811,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _event_bus_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../event-bus.js */ "./resources/js/event-bus.js");
 //
 //
 //
@@ -1824,6 +1828,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1831,12 +1836,19 @@ __webpack_require__.r(__webpack_exports__);
       loading: true
     };
   },
-  mounted: function mounted() {
+  created: function created() {
     var _this = this;
 
+    _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["default"].$on('pokemon-added', function (data) {
+      _this.pokemons.push(data);
+    });
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
     axios.get('http://localhost:8000/pokemons').then(function (response) {
-      _this.pokemons = response.data;
-      _this.loading = false;
+      _this2.pokemons = response.data;
+      _this2.loading = false;
     });
   }
 });
@@ -50779,6 +50791,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Spinner_vue_vue_type_template_id_7ae326fe___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/event-bus.js":
+/*!***********************************!*\
+  !*** ./resources/js/event-bus.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+var bus = new Vue();
+/* harmony default export */ __webpack_exports__["default"] = (bus);
 
 /***/ }),
 
