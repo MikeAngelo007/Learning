@@ -15,12 +15,9 @@ class PokemonController extends Controller
     public function index(Request $request)
     {
         //
+        $pokemons = Pokemon::all();
         if($request->ajax()){
-            return response()->json([
-                ['id' => 1 ,'name' => 'Pikachu'],
-                ['id' => 2 ,'name' => 'Squirtle'],
-                ['id' => 3 ,'name' => 'Charizard'],
-            ],200);
+            return response()->json($pokemons,200);
         }
         return view('pokemons.index');
     }
