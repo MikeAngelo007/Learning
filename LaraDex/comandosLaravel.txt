@@ -133,4 +133,16 @@ un componente se usa dentro de una vista, llamando su nombre como si fuera una e
 Ej. el componente se llama 'example-component' segun app.js, asi que el la vista seria: <example-component></example-component>
 
 
-npm run watch --------------> Estara monitoreando y recompilando cada una de las modificaciones que se hagan en los componentes
+npm run watch -----------> Estara monitoreando y recompilando cada una de las modificaciones que se hagan en los componentes
+
+
+
+---------------------------- CSS Spinners: (https://projects.lukehaas.me/css-loaders/)
+Los cositos que giran mientras cargan la pagina
+
+1. Creamos el componente con el codigo de la pagina
+2. Lo registramos en app.js
+3. Lo llamamos desde el componente que se 'cargara'
+4. Usamos v-show para decirle que se muestre si una variable 'loading' es true.
+5. Configuramos 'loading' en el script, para que el spinner se muestre desde que carga la paginas hasta obtener los datos.
+

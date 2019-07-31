@@ -1,5 +1,6 @@
 <template>
     <div class="row">
+        <spinner v-show="loading"></spinner>
                 <div class="col-sm" v-for="pokemon in pokemons">
                     <div class="card text-center" style="width: 18rem;margin-top:50px;">
                     <img style="height:100px; width:100px;background-color:#EFEFEF;margin:20px;" class="card-img-top rounded-circle mx-auto d-block" src="/images/" alt="Avatar">
@@ -18,12 +19,18 @@
 export default {
     data(){
         return {
-            pokemons: []
+            pokemons: [],
+            loading: true
         }
     },
 
     mounted(){
-        axios.get('http://localhost:8000/pokemons').then(response => (this.pokemons = response.data))
+        axios
+            .get('http://localhost:8000/pokemons')
+            .then((response)=>{
+                this.pokemons = response.data
+                this.loading=false
+                })
     }
 }
 </script>
