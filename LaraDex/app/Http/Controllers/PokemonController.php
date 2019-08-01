@@ -4,6 +4,7 @@ namespace LaraDex\Http\Controllers;
 
 use Illuminate\Http\Request;
 use LaraDex\Pokemon;
+use LaraDex\Trainer;
 
 class PokemonController extends Controller
 {
@@ -12,10 +13,11 @@ class PokemonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Trainer $trainer, Request $request)
     {
         //
-        $pokemons = Pokemon::all();
+        #$pokemons = Pokemon::all();
+        $pokemons = $trainer->pokemons;
         if($request->ajax()){
             return response()->json($pokemons,200);
         }
@@ -38,7 +40,7 @@ class PokemonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Trainer $trainer, Request $request) /** Este metodo es llamado desde el componente CreatePokemon */
     {
         //
 
@@ -46,7 +48,8 @@ class PokemonController extends Controller
             $pokemon= new Pokemon();
             $pokemon->name = $request->input('name');
             $pokemon->picture = $request->input('picture');
-            $pokemon->save();
+            $pokemon->trainer()->associate($trainer)->save();   
+            #$pokemon->save();
 
             return response()->json([
                 'message' => 'Pokemon creado correctamente',

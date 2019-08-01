@@ -17,14 +17,22 @@
 
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         
-        @if (Auth::user()->hasAnyRole(['admin']))
-            <a href="/trainers/{{$trainer->slug}}/edit" class="btn btn-primary">Editar</a>
+        <h1>Pokemon's</h1>
+        @if (Auth::user())
+            @if (Auth::user()->hasAnyRole(['admin']))
+                <a href="/trainers/{{$trainer->slug}}/edit" class="btn btn-primary">Editar</a>
 
-            <form method="POST" action="/trainers/{{$trainer->slug}}">
-                @method('delete')
-                @csrf
-                <button type="submit" class="btn btn-danger">Eliminar</button>
-            </form>
+                <form method="POST" action="/trainers/{{$trainer->slug}}">
+                    @method('delete')
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+                <add-pokemon-btn></add-pokemon-btn>
+                <create-form-pokemon></create-form-pokemon>
+            @endif
         @endif
+        
+
+        <pokemons-component></pokemons-component>
     </div>
     @endsection

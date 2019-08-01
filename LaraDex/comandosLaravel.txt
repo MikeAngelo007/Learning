@@ -146,3 +146,6 @@ Los cositos que giran mientras cargan la pagina
 4. Usamos v-show para decirle que se muestre si una variable 'loading' es true.
 5. Configuramos 'loading' en el script, para que el spinner se muestre desde que carga la paginas hasta obtener los datos.
 
+---------------------------- Relacion entre modelos: (https://laravel.com/docs/5.8/eloquent-relationships)
+
+si un modelo pertenece a otro, se debe agregar un atributo modelo_id, para indicar el id del modelo al que pertenece.

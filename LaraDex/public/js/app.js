@@ -1753,7 +1753,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     savePokemon: function savePokemon() {
-      axios.post('http://localhost:8000/pokemons', {
+      var currentRoute = window.location.pathname;
+      axios.post("http://localhost:8000".concat(currentRoute, "/pokemons"), {
         name: this.name,
         picture: this.picture
       }).then(function (res) {
@@ -1846,7 +1847,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this2 = this;
 
-    axios.get('http://localhost:8000/pokemons').then(function (response) {
+    var currentRoute = window.location.pathname;
+    axios.get("http://localhost:8000".concat(currentRoute, "/pokemons")).then(function (response) {
       _this2.pokemons = response.data;
       _this2.loading = false;
     });
